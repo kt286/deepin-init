@@ -34,7 +34,7 @@ wget https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lanter
 sudo dpkg -i lantern-installer-64-bit.deb
 
 #删除Chrome推荐设置
-sudo rm /etc/opt/chrome/policies/recommended/defalut-plugins-settings.json
+sudo rm /etc/opt/chrome/policies/recommended/*.json
 
 #清理一下
 sudo apt-get autoremove
