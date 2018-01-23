@@ -8,6 +8,7 @@ sudo apt-get update && sudo apt-get upgrade
 sudo apt-get install wget curl
 
 #关闭开关机logo和不知道干嘛的设置（据说关闭之后会减少卡顿）
+gsettings set com.deepin.dde.startdde launch-welcome false
 gsettings set com.deepin.dde.startdde swap-sched-enabled false
 
 #添加Chrome源到source.list.d
