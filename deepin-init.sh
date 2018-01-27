@@ -34,6 +34,8 @@ sudo apt-get install google-chrome-stable #Chrome浏览器
 sudo apt-get install code #VSCode
 sudo apt-get install libappindicator3-1 #Lantern依赖，不安装的话会打不开蓝灯
 sudo apt-get install winehq-stable #wine deepin自带的那个有点旧
+sudo apt-get install python3.6 #更新Python3到3.6
+sudo apt-get install qt-sdk #安装qt开发包
 
 #安装Lantren
 wget https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer-64-bit.deb
