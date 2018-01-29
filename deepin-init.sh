@@ -10,6 +10,7 @@ sudo apt-get install wget curl
 #关闭开关机logo和不知道干嘛的设置（据说关闭之后会减少卡顿）
 gsettings set com.deepin.dde.startdde launch-welcome false
 gsettings set com.deepin.dde.startdde swap-sched-enabled false
+sudo plymouth-set-default-theme -R details
 
 #添加Chrome源到source.list.d
 wget -q -O - http://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
