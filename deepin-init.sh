@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #先进到用户下载目录
 cd ~/Downloads
@@ -10,7 +10,7 @@ sudo apt-get install wget curl
 #关闭开关机logo和不知道干嘛的设置（据说关闭之后会减少卡顿）
 gsettings set com.deepin.dde.startdde launch-welcome false
 gsettings set com.deepin.dde.startdde swap-sched-enabled false
-sudo plymouth-set-default-theme -R details
+sudo plymouth-set-default-theme -R details # 修改开机logo为详细信息（个人喜好）
 
 #添加Chrome源到source.list.d
 wget -q -O - http://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
@@ -25,9 +25,12 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode s
 wget -q -O - https://dl.winehq.org/wine-builds/Release.key | sudo apt-key add -
 sudo sh -c 'echo "deb https://dl.winehq.org/wine-builds/debian/ DISTRO main" >> /etc/apt/sources.list.d/winehq.list'
 
-#卸载系统自带Flash（Chrome会自动更新的，不用Firefox）
+#卸载系统自带Flash（Chrome会自动更新的）
 sudo apt-get purge libflashplugin-pepper
 rm -rf ~/.config/google-chrome/PepperFlash/
+
+#卸载自带QQ（原因不解释，我喜欢TIM）
+sudo apt-get purge deepin.com.qq.im
 
 #安装软件
 sudo apt-get update && sudo apt-get upgrade
@@ -35,8 +38,9 @@ sudo apt-get install google-chrome-stable #Chrome浏览器
 sudo apt-get install code #VSCode
 sudo apt-get install libappindicator3-1 #Lantern依赖，不安装的话会打不开蓝灯
 sudo apt-get install winehq-stable #wine deepin自带的那个有点旧
-sudo apt-get install python3.6 #更新Python3到3.6
-sudo apt-get install qt-sdk #安装qt开发包
+sudo apt-get install python3.6 #安装Python3.6 系统中会共存2.7 3.5 3.6 通过python3.6 xxx调用
+sudo apt-get install qt5-qmake #安装qt5编译工具
+sudo apt-get install deepin.com.qq.office #安装TIM
 
 #安装Lantren
 wget https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer-64-bit.deb
