@@ -49,5 +49,11 @@ sudo dpkg -i lantern-installer-64-bit.deb
 #删除Chrome推荐设置
 sudo rm /etc/opt/chrome/policies/recommended/*.json
 
+#安装anbox
+wget -q -O - http://ppa.launchpad.net/morphis/anbox-support/ubuntu/pool/main/a/anbox/anbox-common_9_all.deb | sudo dpkg -i -
+wget -q -O - http://ppa.launchpad.net/morphis/anbox-support/ubuntu/pool/main/a/anbox/anbox-modules-dkms_9_all.deb | sudo dpkg -i -
+sudo apt-get install snapd linux-headers-deepin-amd64
+sudo snap install --edge --devmode anbox
+
 #清理一下
 sudo apt-get autoremove
