@@ -11,3 +11,11 @@ mkdir build && cd build && qmake LIB_INSTALL_DIR=/usr/lib/x86_64-linux-gnu .. &&
 ```
 mkdir build && cd build && qmake PREFIX=/usr .. && make -j4 && sudo make install
 ```
+##### 编译前检查依赖
+```
+dpkg-checkbuilddeps
+```
+##### 打成deb包
+```
+dpkg-buildpackage -r
+```
