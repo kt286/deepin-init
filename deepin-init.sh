@@ -49,20 +49,24 @@ sudo dpkg -i lantern-installer-64-bit.deb
 #删除Chrome推荐设置
 sudo rm /etc/opt/chrome/policies/recommended/*.json
 
-#安装anbox
-wget -q -O - http://ppa.launchpad.net/morphis/anbox-support/ubuntu/pool/main/a/anbox/anbox-common_9_all.deb | sudo dpkg -i -
-wget -q -O - http://ppa.launchpad.net/morphis/anbox-support/ubuntu/pool/main/a/anbox/anbox-modules-dkms_9_all.deb | sudo dpkg -i -
-sudo apt-get install snapd linux-headers-deepin-amd64
-sudo snap install --edge --devmode anbox
-cd /usr/src/anbox-modules-ashmem-9
-ashmem.c
-<<<
-ret = __vfs_read(asma->file, buf, len, pos);
->>>
-ret = kernel_read(asma->file, buf, len, pos);
-sudo make
-sudo cp ashmem_linux.ko /lib/modules/$(uname -r)/updates/ashmem_linux.ko
-sudo insmod /lib/modules/$(uname -r)/updates/ashmem_linux.ko
-
 #清理一下
 sudo apt-get autoremove
+
+
+
+
+#安装anbox
+#wget -q -O - http://ppa.launchpad.net/morphis/anbox-support/ubuntu/pool/main/a/anbox/anbox-common_9_all.deb | sudo dpkg -i -
+#wget -q -O - http://ppa.launchpad.net/morphis/anbox-support/ubuntu/pool/main/a/anbox/anbox-modules-dkms_9_all.deb | sudo dpkg -i -
+s#udo apt-get install snapd linux-headers-deepin-amd64
+#sudo snap install --edge --devmode anbox
+#cd /usr/src/anbox-modules-ashmem-9
+#ashmem.c
+#<<<
+#ret = __vfs_read(asma->file, buf, len, pos);
+#>>>
+#ret = kernel_read(asma->file, buf, len, pos);
+#sudo make
+#sudo cp ashmem_linux.ko /lib/modules/$(uname -r)/updates/ashmem_linux.ko
+#sudo insmod /lib/modules/$(uname -r)/updates/ashmem_linux.ko
+
