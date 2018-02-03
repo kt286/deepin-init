@@ -58,7 +58,7 @@ sudo apt-get autoremove
 #安装anbox
 #wget -q -O - http://ppa.launchpad.net/morphis/anbox-support/ubuntu/pool/main/a/anbox/anbox-common_9_all.deb | sudo dpkg -i -
 #wget -q -O - http://ppa.launchpad.net/morphis/anbox-support/ubuntu/pool/main/a/anbox/anbox-modules-dkms_9_all.deb | sudo dpkg -i -
-s#udo apt-get install snapd linux-headers-deepin-amd64
+#sudo apt-get install snapd linux-headers-deepin-amd64
 #sudo snap install --edge --devmode anbox
 #cd /usr/src/anbox-modules-ashmem-9
 #ashmem.c
