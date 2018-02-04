@@ -41,16 +41,16 @@ sudo apt-get install winehq-stable #wine deepin自带的那个有点旧
 sudo apt-get install python3.6 #安装Python3.6 系统中会共存2.7 3.5 3.6 通过python3.6 xxx调用
 sudo apt-get install qt5-qmake #安装qt5编译工具
 sudo apt-get install deepin.com.qq.office #安装TIM
+sudo apt-get install openjdk-8-jdk #安装openjdk8
 
 #安装Lantren
-wget https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer-64-bit.deb
-sudo dpkg -i lantern-installer-64-bit.deb
+wget -q -O - https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer-64-bit.deb | sudo dpkg -i -
 
 #删除Chrome推荐设置
 sudo rm /etc/opt/chrome/policies/recommended/*.json
 
 #清理一下
-sudo apt-get autoremove
+sudo apt-get autoremove --purge
 
 
 
