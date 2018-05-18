@@ -23,7 +23,7 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode s
 
 #添加Docker源到source.list.d
 wget -q -O - https://mirrors.ustc.edu.cn/docker-ce/linux/debian/gpg | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/debian jessie stable" > /etc/apt/sources.list.d/vscode.list'
+sudo sh -c 'echo "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/debian jessie stable" > /etc/apt/sources.list.d/docker.list'
 
 #卸载系统自带Flash（Chrome会自动更新的）
 sudo apt-get purge libflashplugin-pepper
