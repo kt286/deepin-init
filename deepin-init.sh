@@ -14,7 +14,7 @@ sudo plymouth-set-default-theme -R details # 修改开机logo为详细信息（�
 
 #添加Chrome源到source.list.d
 wget -q -O - http://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list'
 
 #添加VSCode源到source.list.d
 wget -q -O - https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor - > microsoft.gpg
@@ -22,8 +22,12 @@ sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
 #添加Wine源到source.list.d
-wget -q -O - https://dl.winehq.org/wine-builds/Release.key | sudo apt-key add -
-sudo sh -c 'echo "deb https://dl.winehq.org/wine-builds/debian/ DISTRO main" >> /etc/apt/sources.list.d/winehq.list'
+#wget -q -O - https://dl.winehq.org/wine-builds/Release.key | sudo apt-key add -
+#sudo sh -c 'echo "deb https://dl.winehq.org/wine-builds/debian/ DISTRO main" > /etc/apt/sources.list.d/winehq.list'
+
+#添加Docker源到source.list.d
+wget -q -O - https://mirrors.ustc.edu.cn/docker-ce/linux/debian/gpg | sudo apt-key add -
+sudo sh -c 'echo "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/debian wheezy stable" > /etc/apt/sources.list.d/vscode.list'
 
 #卸载系统自带Flash（Chrome会自动更新的）
 sudo apt-get purge libflashplugin-pepper
@@ -37,11 +41,12 @@ sudo apt-get update && sudo apt-get upgrade
 sudo apt-get install google-chrome-stable #Chrome浏览器
 sudo apt-get install code #VSCode
 sudo apt-get install libappindicator3-1 #Lantern依赖，不安装的话会打不开蓝灯
-sudo apt-get install winehq-stable #wine deepin自带的那个有点旧
+#sudo apt-get install winehq-stable #wine deepin自带的那个有点旧
 sudo apt-get install python3.6 #安装Python3.6 系统中会共存2.7 3.5 3.6 通过python3.6 xxx调用
 sudo apt-get install qt5-qmake #安装qt5编译工具
 sudo apt-get install deepin.com.qq.office #安装TIM
 sudo apt-get install openjdk-8-jdk #安装openjdk8
+sudo apt-get install docker-ce #安装docker-ce
 
 #安装Lantren
 wget -q -O - https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer-64-bit.deb | sudo dpkg -i -
