@@ -45,12 +45,13 @@ sudo apt-get install python3.6 #安装Python3.6 系统中会共存2.7 3.5 3.6 �
 sudo apt-get install qt5-qmake #安装qt5编译工具
 sudo apt-get install deepin.com.qq.office #安装TIM
 sudo apt-get install deepin.com.wechat.devtools  #微信开发者工具
+sudo apt-get install deepin.com.wechat  #微信
 sudo apt-get install openjdk-8-jdk #安装openjdk8
 sudo apt-get install docker-ce #安装docker-ce
 
 #第三方wine APP
 sudo apt-get install deepin.apps.com.wechat.devtools  #微信开发者工具
-sudo apt-get install deepin.apps.com.wecha  #微信
+sudo apt-get install deepin.apps.com.wechat  #微信
 sudo apt-get install deepin.apps.com.qq.office  #TIM
 
 #安装Lantren
