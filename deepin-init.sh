@@ -25,6 +25,10 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode s
 wget -q -O - https://mirrors.ustc.edu.cn/docker-ce/linux/debian/gpg | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/debian jessie stable" > /etc/apt/sources.list.d/docker.list'
 
+#添加第三方wine tim源到source.list.d
+wget -q -O - https://yenole.gitee.io/sign.pub | sudo apt-key add -
+sudo sh -c 'echo "deb https://yenole.gitee.io stable main" > /etc/apt/sources.list.d/3th-deepinwine-app.list'
+
 #卸载系统自带Flash（Chrome会自动更新的）
 sudo apt-get purge libflashplugin-pepper
 rm -rf ~/.config/google-chrome/PepperFlash/
@@ -40,8 +44,14 @@ sudo apt-get install libappindicator3-1 #Lantern依赖，不安装的话会打�
 sudo apt-get install python3.6 #安装Python3.6 系统中会共存2.7 3.5 3.6 通过python3.6 xxx调用
 sudo apt-get install qt5-qmake #安装qt5编译工具
 sudo apt-get install deepin.com.qq.office #安装TIM
+sudo apt-get install deepin.com.wechat.devtools  #微信开发者工具
 sudo apt-get install openjdk-8-jdk #安装openjdk8
 sudo apt-get install docker-ce #安装docker-ce
+
+#第三方wine APP
+sudo apt-get install deepin.apps.com.wechat.devtools  #微信开发者工具
+sudo apt-get install deepin.apps.com.wecha  #微信
+sudo apt-get install deepin.apps.com.qq.office  #TIM
 
 #安装Lantren
 wget -q -O - https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer-64-bit.deb | sudo dpkg -i -
