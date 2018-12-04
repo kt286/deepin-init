@@ -4,8 +4,8 @@
 cd ~/Downloads
 
 #先更新一下
-sudo apt-get update && sudo apt-get upgrade
-sudo apt-get install wget curl
+sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get install wget curl console-setup -y
 
 #关闭开关机logo
 sudo plymouth-set-default-theme -R details  # 修改开机logo为详细信息（个人喜好）
@@ -35,24 +35,26 @@ rm -rf ~/.config/google-chrome/PepperFlash/
 sudo apt-get purge deepin.com.qq.im
 
 #安装软件
-sudo apt-get update && sudo apt-get upgrade
-sudo apt-get install google-chrome-stable #Chrome浏览器
-sudo apt-get install code #VSCode
-sudo apt-get install python3.6 #安装Python3.6 系统中会共存2.7 3.5 3.6 通过python3.6 xxx调用
-sudo apt-get install qt5-qmake #安装qt5编译工具
-sudo apt-get install deepin.com.qq.office #安装TIM
-sudo apt-get install deepin.com.wechat.devtools  #微信开发者工具
-sudo apt-get install deepin.com.wechat  #微信
-sudo apt-get install openjdk-8-jdk #安装openjdk8
-sudo apt-get install docker-ce #安装docker-ce
-sudo apt-get install teamviewer #安装teamviewer 
-
+sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get install qt5-qmake -y    #安装qt5编译工具
+sudo apt-get install deepin.com.qq.office -y     #安装TIM
+sudo apt-get install deepin.com.wechat.devtools -y      #微信开发者工具
+sudo apt-get install deepin.com.wechat -y      #微信
+sudo apt-get install openjdk-8-jdk -y     #安装openjdk8
+sudo apt-get install docker-ce -y     #安装docker-ce
+sudo apt-get install teamviewer -y     #安装teamviewer 
 
 #安装Lantren
-wget -q -O - https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer-64-bit.deb | sudo dpkg -i -
+wget -q https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer-64-bit.deb 
+sudo dpkg -i lantern-installer-64-bit.deb 
 
 #删除Chrome推荐设置
 sudo rm /etc/opt/chrome/policies/recommended/*.json
+
+#更新TIM到最新版本(需要先运行一下TIM，生成文件后后再执行)
+export WINEPREFIX=~/.deepinwine/Deepin-TIM
+wget -q https://qd.myapp.com/myapp/qqteam/tim/down/tim_pc.exe
+deepin-wine tim_pc.exe
 
 #清理一下
 sudo apt-get autoremove --purge
@@ -61,10 +63,7 @@ sudo apt-get autoremove --purge
 
 
 
-
-#不知道干嘛的设置（据说关闭之后会减少卡顿）
-#gsettings set com.deepin.dde.startdde launch-welcome false
-#gsettings set com.deepin.dde.startdde swap-sched-enabled false
+## 以下内容待移除
 
 #添加Wine源到source.list.d
 #wget -q -O - https://dl.winehq.org/wine-builds/Release.key | sudo apt-key add -
@@ -80,6 +79,9 @@ sudo apt-get autoremove --purge
 #sudo apt-get install deepin.apps.com.wechat  #微信
 #sudo apt-get install deepin.apps.com.qq.office  #TIM
 
-#sudo apt-get install libappindicator3-1 #Lantern依赖，不安装的话会打不开蓝灯（Deepin 15.7 已安装）
+#sudo apt-get install libappindicator3-1 -y   #Lantern依赖，不安装的话会打不开蓝灯（Deepin 15.7+ 已安装）
+#sudo apt-get install google-chrome-stable -y    #Chrome浏览器（Deepin 15.8+ 已安装）
+#sudo apt-get install code -y    #VSCode（Deepin 15.8+ 已安装）
+#sudo apt-get install python3.6 -y   #安装Python3.6 （Deepin 15.8+ 已安装）
 
 
