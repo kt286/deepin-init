@@ -27,6 +27,10 @@ sudo sh -c 'echo "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/d
 wget -q -O - https://download.teamviewer.com/download/linux/signature/TeamViewer2017.asc | sudo apt-key add -
 sudo sh -c 'echo "deb http://linux.teamviewer.com/deb stable main" > /etc/apt/sources.list.d/teamviewer.list'
 
+#添加Typora源到source.list.d
+wget -q -O - https://typora.io/linux/public-key.asc | sudo apt-key add -
+sudo sh -c 'echo "deb https://typora.io/linux ./" > /etc/apt/sources.list.d/typora.list'
+
 #卸载系统自带Flash（Chrome会自动更新的）
 sudo apt-get purge libflashplugin-pepper
 rm -rf ~/.config/google-chrome/PepperFlash/
@@ -43,6 +47,7 @@ sudo apt-get install deepin.com.wechat -y      #微信
 sudo apt-get install openjdk-8-jdk -y     #安装openjdk8
 sudo apt-get install docker-ce -y     #安装docker-ce
 sudo apt-get install teamviewer -y     #安装teamviewer 
+sudo apt-get install typora -y     #安装typora
 
 #安装Lantren
 wget -q https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer-64-bit.deb 
