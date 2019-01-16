@@ -38,6 +38,10 @@ rm -rf ~/.config/google-chrome/PepperFlash/
 #卸载自带QQ（原因不解释，我喜欢TIM）
 sudo apt-get purge deepin.com.qq.im
 
+#卸载深度帮助手册和深度欢迎两个没用的东西（会同时卸载dde，貌似没啥问题）
+sudo apt-get purge deepin-manual -y
+sudo apt-get purge dde-introduction -y
+
 #安装软件
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install qt5-qmake -y    #安装qt5编译工具
@@ -69,20 +73,6 @@ sudo apt-get autoremove --purge
 
 
 ## 以下内容待移除
-
-#添加Wine源到source.list.d
-#wget -q -O - https://dl.winehq.org/wine-builds/Release.key | sudo apt-key add -
-#sudo sh -c 'echo "deb https://dl.winehq.org/wine-builds/debian/ DISTRO main" > /etc/apt/sources.list.d/winehq.list'
-#sudo apt-get install winehq-stable #wine
-
-#添加第三方wine tim源到source.list.d
-#wget -q -O - https://yenole.gitee.io/sign.pub | sudo apt-key add -
-#sudo sh -c 'echo "deb https://yenole.gitee.io stable main" > /etc/apt/sources.list.d/3th-deepinwine-app.list'
-
-#第三方wine APP
-#sudo apt-get install deepin.apps.com.wechat.devtools  #微信开发者工具
-#sudo apt-get install deepin.apps.com.wechat  #微信
-#sudo apt-get install deepin.apps.com.qq.office  #TIM
 
 #sudo apt-get install libappindicator3-1 -y   #Lantern依赖，不安装的话会打不开蓝灯（Deepin 15.7+ 已安装）
 #sudo apt-get install google-chrome-stable -y    #Chrome浏览器（Deepin 15.8+ 已安装）
