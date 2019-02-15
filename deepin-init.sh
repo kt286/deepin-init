@@ -36,11 +36,17 @@ sudo apt-get purge libflashplugin-pepper
 rm -rf ~/.config/google-chrome/PepperFlash/
 
 #卸载自带QQ（原因不解释，我喜欢TIM）
-sudo apt-get purge deepin.com.qq.im
+sudo apt-get purge deepin.com.qq.im -y
 
 #卸载深度帮助手册和深度欢迎两个没用的东西（会同时卸载dde，貌似没啥问题）
 sudo apt-get purge deepin-manual -y
 sudo apt-get purge dde-introduction -y
+
+#卸载自己不需要的软件
+sudo apt-get purge thunderbird -y
+sudo apt-get purge deepin-feedback -y
+sudo apt-get purge deepin-fpapp-org.deepin.flatdeb.deepin-music -y
+sudo apt-get purge deepin-fpapp-org.deepin.flatdeb.deepin-calculator -y
 
 #安装软件
 sudo apt-get update && sudo apt-get upgrade -y
@@ -74,9 +80,5 @@ sudo apt-get autoremove --purge
 
 ## 以下内容待移除
 
-#sudo apt-get install libappindicator3-1 -y   #Lantern依赖，不安装的话会打不开蓝灯（Deepin 15.7+ 已安装）
-#sudo apt-get install google-chrome-stable -y    #Chrome浏览器（Deepin 15.8+ 已安装）
-#sudo apt-get install code -y    #VSCode（Deepin 15.8+ 已安装）
-#sudo apt-get install python3.6 -y   #安装Python3.6 （Deepin 15.8+ 已安装）
 
 
