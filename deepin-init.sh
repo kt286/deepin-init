@@ -3,6 +3,9 @@
 #先进到用户下载目录
 cd ~/Downloads
 
+#替换成163的源
+sudo sh -c 'echo "deb [by-hash=force] http://mirrors.163.com/deepin/ panda main contrib non-free" > /etc/apt/sources.list'
+
 #先更新一下
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt-get install wget curl console-setup -y
@@ -22,10 +25,6 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode s
 #添加Docker源到source.list.d
 wget -q -O - https://mirrors.ustc.edu.cn/docker-ce/linux/debian/gpg | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/debian jessie stable" > /etc/apt/sources.list.d/docker.list'
-
-#添加Teamviewer源到source.list.d
-wget -q -O - https://download.teamviewer.com/download/linux/signature/TeamViewer2017.asc | sudo apt-key add -
-sudo sh -c 'echo "deb http://linux.teamviewer.com/deb stable main" > /etc/apt/sources.list.d/teamviewer.list'
 
 #添加Typora源到source.list.d
 wget -q -O - https://typora.io/linux/public-key.asc | sudo apt-key add -
@@ -56,29 +55,19 @@ sudo apt-get install deepin.com.wechat.devtools -y      #微信开发者工具
 sudo apt-get install deepin.com.wechat -y      #微信
 sudo apt-get install openjdk-8-jdk -y     #安装openjdk8
 sudo apt-get install docker-ce -y     #安装docker-ce
-sudo apt-get install teamviewer -y     #安装teamviewer 
 sudo apt-get install typora -y     #安装typora
 
 #安装Lantren
-wget -q https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer-64-bit.deb 
+wget https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer-64-bit.deb 
 sudo dpkg -i lantern-installer-64-bit.deb 
 
 #删除Chrome推荐设置
 sudo rm /etc/opt/chrome/policies/recommended/*.json
 
-#更新TIM到最新版本(需要先运行一下TIM，生成文件后后再执行)
+#更新TIM到最新版本(需要先运行一下TIM，生成文件夹后再执行)
 export WINEPREFIX=~/.deepinwine/Deepin-TIM
-wget -q https://qd.myapp.com/myapp/qqteam/tim/down/tim_pc.exe
+wget https://dldir1.qq.com/qqfile/qq/PCTIM2.3.2/21158/TIM2.3.2.21158.exe
 deepin-wine tim_pc.exe
 
 #清理一下
 sudo apt-get autoremove --purge
-
-
-
-
-
-## 以下内容待移除
-
-
-
