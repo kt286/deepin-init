@@ -4,7 +4,7 @@
 cd ~/Downloads
 
 #替换成163的源
-sudo sh -c 'echo "deb [by-hash=force] http://mirrors.163.com/deepin/ panda main contrib non-free" > /etc/apt/sources.list'
+sudo sh -c 'echo "deb [by-hash=force] http://mirrors.163.com/deepin/ lion main contrib non-free" > /etc/apt/sources.list'
 
 #先更新一下
 sudo apt-get update && sudo apt-get upgrade -y
@@ -31,13 +31,13 @@ wget -q -O - https://typora.io/linux/public-key.asc | sudo apt-key add -
 sudo sh -c 'echo "deb https://typora.io/linux ./" > /etc/apt/sources.list.d/typora.list'
 
 #卸载系统自带Flash（Chrome会自动更新的）
-sudo apt-get purge libflashplugin-pepper
+sudo apt-get purge libflashplugin-pepper   #貌似新版本没了  下个版本试试
 rm -rf ~/.config/google-chrome/PepperFlash/
 
 #卸载自带QQ（原因不解释，我喜欢TIM）
 sudo apt-get purge deepin.com.qq.im -y
 
-#卸载深度帮助手册和深度欢迎两个没用的东西（会同时卸载dde，貌似没啥问题）
+#卸载深度帮助手册和深度欢迎两个没用还占地方的东西（会同时卸载dde，貌似没啥问题）
 sudo apt-get purge deepin-manual -y
 sudo apt-get purge dde-introduction -y
 
