@@ -5,10 +5,14 @@
 
 ```
 wget https://raw.githubusercontent.com/kt286/deepin-init/master/deepin-init.sh
-chmod +x deepin-init.sh
-sh deepin.sh
+sudo chmod +x deepin-init.sh
+sh deepin-init.sh
 ```
 
 ## 当前版本
 
-`15.10 stable`
+`15.10.x stable`
+
+## 下载地址
+
+[官方下载页面](https://www.deepin.org/download/)
