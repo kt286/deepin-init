@@ -7,8 +7,8 @@ cd ~/Downloads
 sudo sh -c 'echo "deb [by-hash=force] http://mirrors.163.com/deepin/ lion main contrib non-free" > /etc/apt/sources.list'
 
 #先更新一下
-sudo apt-get update && sudo apt-get upgrade -y
-sudo apt-get install wget curl console-setup -y
+sudo apt-get update && sudo apt-get upgrade
+sudo apt-get install curl console-setup
 
 #关闭开关机logo
 sudo plymouth-set-default-theme -R details  # 修改开机logo为详细信息（个人喜好）
@@ -35,27 +35,25 @@ sudo apt-get purge libflashplugin-pepper   #貌似新版本没了  下个版本�
 rm -rf ~/.config/google-chrome/PepperFlash/
 
 #卸载自带QQ（原因不解释，我喜欢TIM）
-sudo apt-get purge deepin.com.qq.im -y
+sudo apt-get purge deepin.com.qq.im
 
 #卸载深度帮助手册和深度欢迎两个没用还占地方的东西（会同时卸载dde，貌似没啥问题）
-sudo apt-get purge deepin-manual -y
-sudo apt-get purge dde-introduction -y
+sudo apt-get purge deepin-manual
+sudo apt-get purge dde-introduction
 
 #卸载自己不需要的软件
-sudo apt-get purge thunderbird -y
-sudo apt-get purge deepin-feedback -y
-sudo apt-get purge deepin-fpapp-org.deepin.flatdeb.deepin-music -y
-sudo apt-get purge deepin-fpapp-org.deepin.flatdeb.deepin-calculator -y
+sudo apt-get purge thunderbird
+sudo apt-get purge deepin-feedback
+sudo apt-get purge deepin-fpapp-org.deepin.flatdeb.deepin-music
+sudo apt-get purge deepin-fpapp-org.deepin.flatdeb.deepin-calculator
 
 #安装软件
-sudo apt-get update && sudo apt-get upgrade -y
-sudo apt-get install qt5-qmake -y    #安装qt5编译工具
-sudo apt-get install deepin.com.qq.office -y     #安装TIM
-sudo apt-get install deepin.com.wechat.devtools -y      #微信开发者工具
-sudo apt-get install deepin.com.wechat -y      #微信
-sudo apt-get install openjdk-8-jdk -y     #安装openjdk8
-sudo apt-get install docker-ce -y     #安装docker-ce
-sudo apt-get install typora -y     #安装typora
+sudo apt-get update && sudo apt-get upgrade
+sudo apt-get install qt5-qmake    #安装qt5编译工具
+sudo apt-get install deepin.com.qq.office     #安装TIM
+sudo apt-get install openjdk-8-jdk     #安装openjdk8
+sudo apt-get install docker-ce     #安装docker-ce
+sudo apt-get install typora     #安装typora
 
 #安装Lantren
 wget https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer-64-bit.deb 
