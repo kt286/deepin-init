@@ -8,7 +8,8 @@ sudo sh -c 'echo "deb [by-hash=force] http://mirrors.163.com/deepin/ lion main c
 
 #先更新一下
 sudo apt-get update && sudo apt-get dist-upgrade
-sudo apt-get install curl console-setup
+sudo apt-get install curl -y
+sudo apt-get install console-setup -y
 
 #关闭开关机logo
 sudo plymouth-set-default-theme -R details  # 修改开机logo为详细信息（个人喜好）
@@ -53,6 +54,7 @@ sudo apt-get purge deepin-calculator -y
 #安装软件
 sudo apt-get update && sudo apt-get dist-upgrade
 sudo apt-get install qt5-qmake -y                  #安装qt5编译工具
+sudo apt-get install code -y                       #安装VSCode
 sudo apt-get install deepin.com.qq.office -y       #安装TIM
 sudo apt-get install openjdk-8-jdk -y              #安装openjdk8
 sudo apt-get install docker-ce -y                  #安装docker-ce
