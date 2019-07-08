@@ -4,36 +4,27 @@
 cd ~/Downloads
 
 #替换成163的源
-sudo echo "deb [by-hash=force] http://mirrors.163.com/deepin/ lion main contrib non-free" > /etc/apt/sources.list
-
-#先更新一下
-sudo apt-get update && sudo apt-get dist-upgrade
-sudo apt-get install -y curl
-sudo apt-get install -y console-setup
-
-#关闭开关机logo
-sudo plymouth-set-default-theme -R details  # 修改开机logo为详细信息（个人喜好）
+sudo sh 'echo "deb [by-hash=force] http://mirrors.163.com/deepin/ lion main contrib non-free" > /etc/apt/sources.list'
 
 #添加Chrome源到source.list.d
 wget -q -O - http://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sudo echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list
+sudo sh 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list'
 
 #添加VSCode源到source.list.d
-wget -q -O - https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor - > microsoft.gpg
-sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list
+wget -q -O - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+sudo sh 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
 #添加Docker源到source.list.d
 wget -q -O - https://mirrors.ustc.edu.cn/docker-ce/linux/debian/gpg | sudo apt-key add -
-sudo echo "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/debian jessie stable" > /etc/apt/sources.list.d/docker.list
+sudo sh 'echo "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/debian jessie stable" > /etc/apt/sources.list.d/docker.list'
 
 #添加Typora源到source.list.d
 wget -q -O - https://typora.io/linux/public-key.asc | sudo apt-key add -
-sudo echo "deb https://typora.io/linux ./" > /etc/apt/sources.list.d/typora.list
+sudo sh 'echo "deb https://typora.io/linux ./" > /etc/apt/sources.list.d/typora.list'
 
 #添加yarn源到source.list.d
 wget -q -O - https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-sudo echo "deb [arch=amd64] https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list
+sudo sh 'echo "deb [arch=amd64] https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list'
 
 #卸载系统自带Flash（Chrome会自动更新的）
 sudo apt-get purge -y libflashplugin-pepper
@@ -58,13 +49,15 @@ sudo apt-get purge -y plymouth-theme-deepin-logo
 
 #安装软件
 sudo apt-get update && sudo apt-get dist-upgrade
-sudo apt-get install -y qt5-qmake                           #安装qt5编译工具
-sudo apt-get install -y code                                #安装VSCode
-sudo apt-get install -y deepin.com.qq.office                #安装TIM
-sudo apt-get install -y openjdk-8-jdk                       #安装openjdk8
-sudo apt-get install -y docker-ce                           #安装docker-ce
-sudo apt-get install -y typora                              #安装typora
-sudo apt-get install --no-install-recommends yarn           #安装typora
+sudo apt-get install -y curl
+sudo apt-get install -y console-setup
+sudo apt-get install -y qt5-qmake
+sudo apt-get install -y code
+sudo apt-get install -y deepin.com.qq.office
+sudo apt-get install -y --no-install-recommends openjdk-8-jdk
+sudo apt-get install -y docker-ce
+sudo apt-get install -y typora
+sudo apt-get install -y --no-install-recommends yarn
 
 #安装Lantren
 wget -t 3 -T 15 https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer-64-bit.deb 
@@ -74,10 +67,13 @@ sudo dpkg -i lantern-installer-64-bit.deb
 sudo rm /etc/opt/chrome/policies/recommended/*.json
 
 #更新TIM到最新版本
-sudo sh /opt/deepinwine/apps/Deepin-TIM/run.sh -c
-export WINEPREFIX=~/.deepinwine/Deepin-TIM
+sudo sh '/opt/deepinwine/apps/Deepin-TIM/run.sh -c'
+export WINEPREFIX=$HOME/.deepinwine/Deepin-TIM
 wget -t 3 -T 15 https://dldir1.qq.com/qqfile/qq/PCTIM2.3.2/21158/TIM2.3.2.21158.exe
 deepin-wine tim_pc.exe
+
+# 修改开机logo为详细信息（个人喜好）
+sudo plymouth-set-default-theme -R details
 
 #清理一下
 sudo apt-get autoremove --purge
