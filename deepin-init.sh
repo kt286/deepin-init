@@ -70,7 +70,7 @@ sudo rm /etc/opt/chrome/policies/recommended/*.json
 sudo sh /opt/deepinwine/apps/Deepin-TIM/run.sh -c
 export WINEPREFIX=$HOME/.deepinwine/Deepin-TIM
 wget -t 3 -T 15 https://dldir1.qq.com/qqfile/qq/PCTIM2.3.2/21158/TIM2.3.2.21158.exe
-deepin-wine tim_pc.exe
+deepin-wine TIM2.3.2.21158.exe
 
 # 修改开机logo为详细信息（个人喜好）
 sudo plymouth-set-default-theme -R details
