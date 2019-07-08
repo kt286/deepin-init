@@ -67,7 +67,7 @@ sudo dpkg -i lantern-installer-64-bit.deb
 sudo rm /etc/opt/chrome/policies/recommended/*.json
 
 #更新TIM到最新版本
-sudo sh /opt/deepinwine/apps/Deepin-TIM/run.sh -c
+sh /opt/deepinwine/apps/Deepin-TIM/run.sh -c
 export WINEPREFIX=$HOME/.deepinwine/Deepin-TIM
 wget -t 3 -T 15 https://dldir1.qq.com/qqfile/qq/PCTIM2.3.2/21158/TIM2.3.2.21158.exe
 deepin-wine TIM2.3.2.21158.exe
