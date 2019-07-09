@@ -5,7 +5,7 @@
 
 ```
 wget https://raw.githubusercontent.com/kt286/deepin-init/master/deepin-init.sh
-sudo chmod +x deepin-init.sh
+chmod +x deepin-init.sh
 sh deepin-init.sh
 ```
 

@@ -4,27 +4,27 @@
 cd ~/Downloads
 
 #替换成163的源
-sudo sh echo "deb [by-hash=force] http://mirrors.163.com/deepin/ lion main contrib non-free" > /etc/apt/sources.list
+sudo sh -c 'echo "deb [by-hash=force] http://mirrors.163.com/deepin/ lion main contrib non-free" > /etc/apt/sources.list'
 
 #添加Chrome源到source.list.d
 wget -q -O - http://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sudo sh echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list
+sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list'
 
 #添加VSCode源到source.list.d
 wget -q -O - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-sudo sh echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
 #添加Docker源到source.list.d
 wget -q -O - https://mirrors.ustc.edu.cn/docker-ce/linux/debian/gpg | sudo apt-key add -
-sudo sh echo "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/debian jessie stable" > /etc/apt/sources.list.d/docker.list
+sudo sh -c 'echo "deb [arch=amd64] https://mirrors.ustc.edu.cn/docker-ce/linux/debian jessie stable" > /etc/apt/sources.list.d/docker.list'
 
 #添加Typora源到source.list.d
 wget -q -O - https://typora.io/linux/public-key.asc | sudo apt-key add -
-sudo sh echo "deb https://typora.io/linux ./" > /etc/apt/sources.list.d/typora.list
+sudo sh -c 'echo "deb https://typora.io/linux ./" > /etc/apt/sources.list.d/typora.list'
 
 #添加yarn源到source.list.d
 wget -q -O - https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-sudo sh echo "deb [arch=amd64] https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list
+sudo sh -c 'echo "deb [arch=amd64] https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list'
 
 #卸载系统自带Flash（Chrome会自动更新的）
 sudo apt-get purge -y libflashplugin-pepper
@@ -67,7 +67,7 @@ sudo dpkg -i lantern-installer-64-bit.deb
 sudo rm /etc/opt/chrome/policies/recommended/*.json
 
 #更新TIM到最新版本
-sh /opt/deepinwine/apps/Deepin-TIM/run.sh -c
+sh -c  '/opt/deepinwine/apps/Deepin-TIM/run.sh -c'
 export WINEPREFIX=$HOME/.deepinwine/Deepin-TIM
 wget -t 3 -T 15 https://dldir1.qq.com/qqfile/qq/PCTIM2.3.2/21158/TIM2.3.2.21158.exe
 deepin-wine TIM2.3.2.21158.exe
