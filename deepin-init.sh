@@ -15,7 +15,7 @@ wget -q -O - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key ad
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
 #添加Docker源到source.list.d
-wget -q -O - https://mirrors.ustc.edu.cn/docker-ce/linux/debian/gpg | sudo apt-key add -
+wget -q -O - https://mirrors.cloud.tencent.com/docker-ce/linux/debian/gpg | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] https://mirrors.cloud.tencent.com/docker-ce/linux/debian jessie stable" > /etc/apt/sources.list.d/docker.list'
 
 #添加Typora源到source.list.d
@@ -25,6 +25,10 @@ sudo sh -c 'echo "deb https://typora.io/linux ./" > /etc/apt/sources.list.d/typo
 #添加yarn源到source.list.d
 wget -q -O - https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list'
+
+#添加mysql源到source.list.d
+sudo apt-key adv --keyserver pgp.mit.edu --recv-keys A4A9406876FCBD3C456770C88C718D3B5072E1F5
+sudo sh -c 'echo "deb [arch=amd64] https://mirrors.cloud.tencent.com/mysql/apt/debian/ stretch mysql-8.0" > /etc/apt/sources.list.d/mysql.list'
 
 #卸载系统自带Flash（Chrome会自动更新的）
 sudo apt-get purge -y libflashplugin-pepper
@@ -58,6 +62,7 @@ sudo apt-get install -y --no-install-recommends openjdk-8-jdk
 sudo apt-get install -y docker-ce
 sudo apt-get install -y typora
 sudo apt-get install -y --no-install-recommends yarn
+sudo apt-get install -y mysql-server
 
 #安装Lantren
 wget -t 3 -T 15 https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer-64-bit.deb 
