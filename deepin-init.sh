@@ -45,10 +45,16 @@ sudo apt-get purge -y dde-introduction
 sudo apt-get purge -y thunderbird
 sudo apt-get purge -y deepin-feedback
 sudo apt-get purge -y deepin-appstore*
-sudo apt-get purge -y deepin-fpapp-org.deepin.flatdeb.deepin-music
 sudo apt-get purge -y deepin-music
-sudo apt-get purge -y deepin-fpapp-org.deepin.flatdeb.deepin-calculator
 sudo apt-get purge -y deepin-calculator
+sudo apt-get purge -y deepin-deepinid-client
+sudo apt-get purge -y deepin-sync-daemon
+sudo apt-get purge -y deepin-cloud-scanner
+sudo apt-get purge -y printer-driver-deepin-cloud-print
+sudo apt-get purge -y deepin-screensaver*
+sudo apt-get purge -y deepin-voice-recorder
+sudo apt-get purge -y deepin-screen-recorder
+sudo apt-get purge -y simple-scan 
 sudo apt-get purge -y plymouth-theme-deepin-logo
 
 #安装软件
