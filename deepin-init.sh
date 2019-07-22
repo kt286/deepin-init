@@ -54,13 +54,17 @@ sudo apt-get purge -y printer-driver-deepin-cloud-print
 sudo apt-get purge -y deepin-screensaver*
 sudo apt-get purge -y deepin-voice-recorder
 sudo apt-get purge -y deepin-screen-recorder
-sudo apt-get purge -y simple-scan 
+sudo apt-get purge -y simple-scan
+sudo apt-get purge -y flatpak
 sudo apt-get purge -y plymouth-theme-deepin-logo
 
 #安装软件
 sudo apt-get update && sudo apt-get dist-upgrade
 sudo apt-get install -y curl
 sudo apt-get install -y console-setup
+sudo apt-get install -y deepin-screenshot
+sudo apt-get install -y deepin-image-viewer
+sudo apt-get install -y dde-calendar
 sudo apt-get install -y qt5-qmake
 sudo apt-get install -y code
 sudo apt-get install -y deepin.com.qq.office
