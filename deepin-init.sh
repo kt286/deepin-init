@@ -16,7 +16,7 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode s
 
 #添加Docker源到source.list.d
 wget -q -O - https://mirrors.cloud.tencent.com/docker-ce/linux/debian/gpg | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] https://mirrors.cloud.tencent.com/docker-ce/linux/debian jessie stable" > /etc/apt/sources.list.d/docker.list'
+sudo sh -c 'echo "deb [arch=amd64] https://mirrors.cloud.tencent.com/docker-ce/linux/debian stretch stable" > /etc/apt/sources.list.d/docker.list'
 
 #添加Typora源到source.list.d
 wget -q -O - https://typora.io/linux/public-key.asc | sudo apt-key add -
