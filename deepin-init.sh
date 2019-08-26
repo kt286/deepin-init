@@ -84,8 +84,9 @@ sudo rm /etc/opt/chrome/policies/recommended/*.json
 #更新TIM到最新版本
 sh -c  '/opt/deepinwine/apps/Deepin-TIM/run.sh -c'
 export WINEPREFIX=$HOME/.deepinwine/Deepin-TIM
-wget -t 3 -T 15 https://dldir1.qq.com/qqfile/qq/PCTIM2.3.2/21158/TIM2.3.2.21158.exe
-deepin-wine TIM2.3.2.21158.exe
+rm TIM2.3.2.21173.exe
+wget -t 3 -T 15 https://dldir1.qq.com/qqfile/qq/TIM2.3.2/21173/TIM2.3.2.21173.exe
+deepin-wine TIM2.3.2.21173.exe
 
 # 修改开机logo为详细信息（个人喜好）
 sudo plymouth-set-default-theme -R details
