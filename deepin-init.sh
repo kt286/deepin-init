@@ -74,9 +74,13 @@ sudo apt-get install -y typora
 sudo apt-get install -y --no-install-recommends yarn
 sudo apt-get install -y mysql-server
 
+#安装向日葵
+wget -t 3 -T 15 http://download.oray.com/sunlogin/linux/sunloginclient-10.0.0.23489_beta_amd64.deb
+sudo dpkg -i sunloginclient-10.0.0.23489_beta_amd64.deb
+
 #安装Lantren
-wget -t 3 -T 15 https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer-64-bit.deb 
-sudo dpkg -i lantern-installer-64-bit.deb 
+wget -t 3 -T 15 https://raw.githubusercontent.com/getlantern/lantern-binaries/master/lantern-installer-64-bit.deb
+sudo dpkg -i lantern-installer-64-bit.deb
 
 #删除Chrome推荐设置
 sudo rm /etc/opt/chrome/policies/recommended/*.json
