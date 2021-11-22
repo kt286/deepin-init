@@ -97,12 +97,4 @@ sudo plymouth-set-default-theme -R details
 sudo apt-get autoremove -y --purge
 
 #设置fcitx图标(bloom主题缺少图标)
-sudo ln -s /usr/share/icons/bloom/apps/16/fcitx-kbd.svg /usr/share/icons/bloom/status/16/input-keyboard.svg
-sudo ln -s /usr/share/icons/bloom/apps/32/fcitx-kbd.svg /usr/share/icons/bloom/status/20/input-keyboard.svg
-sudo ln -s /usr/share/icons/bloom/apps/48/fcitx-kbd.svg /usr/share/icons/bloom/status/48/input-keyboard.svg
-sudo ln -s /usr/share/icons/bloom/apps/48/fcitx-kbd.svg /usr/share/icons/bloom/status/64/input-keyboard.svg
-
-sudo ln -s /usr/share/icons/bloom/apps/16/fcitx-kbd.svg /usr/share/icons/bloom/status/16/input-keyboard-symbolic.svg
-sudo ln -s /usr/share/icons/bloom/apps/32/fcitx-kbd.svg /usr/share/icons/bloom/status/20/input-keyboard-symbolic.svg
-sudo ln -s /usr/share/icons/bloom/apps/48/fcitx-kbd.svg /usr/share/icons/bloom/status/48/input-keyboard-symbolic.svg
-sudo ln -s /usr/share/icons/bloom/apps/48/fcitx-kbd.svg /usr/share/icons/bloom/status/64/input-keyboard-symbolic.svg
+sudo ln -s /usr/share/icons/bloom/status/20/keyboard-symbolic.svg /usr/share/icons/bloom/status/20/input-keyboard-symbolic.svg
