@@ -50,6 +50,7 @@ sudo apt-get purge -y deepin-camera
 sudo apt-get purge -y deepin-mail
 sudo apt-get purge -y fcitx*
 sudo apt-get purge -y org.deepin.browser
+sudo apt-get purge -y yelp
 
 #清理一下
 sudo apt-get autoremove -y --purge
@@ -97,4 +98,5 @@ sudo plymouth-set-default-theme -R details
 sudo apt-get autoremove -y --purge
 
 #设置fcitx图标(bloom主题缺少图标)
+sudo ln -s /usr/share/icons/bloom/status/20/keyboard.svg /usr/share/icons/bloom/status/20/input-keyboard.svg
 sudo ln -s /usr/share/icons/bloom/status/20/keyboard-symbolic.svg /usr/share/icons/bloom/status/20/input-keyboard-symbolic.svg
