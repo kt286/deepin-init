@@ -85,6 +85,7 @@ sudo apt-get install -y bcompare
 sudo rm /etc/opt/chrome/policies/recommended/*.json
 
 #fcitx5开机自启动
+mkdir -p ~/.config/autostart
 sudo cp /usr/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/org.fcitx.Fcitx5.desktop
 
 #更新TIM到最新版本
