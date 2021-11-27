@@ -19,6 +19,10 @@ sudo sh -c 'echo "deb [arch=amd64] https://mirrors.cloud.tencent.com/docker-ce/l
 wget -q -O - https://typora.io/linux/public-key.asc | sudo apt-key add -
 sudo sh -c 'echo "deb https://typora.io/linux ./" > /etc/apt/sources.list.d/typora.list'
 
+#添加Beyond Compare源到source.list.d
+wget -q -O - https://www.scootersoftware.com/RPM-GPG-KEY-scootersoftware | sudo apt-key add -
+sudo sh -c 'echo "deb https://www.scootersoftware.com/ bcompare4 non-free" > /etc/apt/sources.list.d/scootersoftware.list'
+
 #卸载系统自带Flash
 sudo apt-get purge -y libflashplugin-pepper
 rm -rf ~/.config/google-chrome/PepperFlash/
@@ -51,6 +55,8 @@ sudo apt-get purge -y deepin-mail
 sudo apt-get purge -y fcitx*
 sudo apt-get purge -y org.deepin.browser
 sudo apt-get purge -y yelp
+sudo apt-get purge -y geoclue-2.0
+sudo apt-get purge -y redshift 
 
 #清理一下
 sudo apt-get autoremove -y --purge
@@ -73,9 +79,13 @@ sudo apt-get install -y typora
 sudo apt-get install -y fcitx5-chinese-addons
 sudo apt-get install -y com.oray.sunlogin.client
 sudo apt-get install -y cn.wps.wps-office
+sudo apt-get install -y bcompare
 
 #删除Chrome推荐设置
 sudo rm /etc/opt/chrome/policies/recommended/*.json
+
+#fcitx5开机自启动
+sudo cp /usr/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/org.fcitx.Fcitx5.desktop
 
 #更新TIM到最新版本
 sh -c  '/opt/apps/com.qq.office.deepin/files/run.sh -c'
@@ -98,5 +108,4 @@ sudo plymouth-set-default-theme -R details
 sudo apt-get autoremove -y --purge
 
 #设置fcitx图标(bloom主题缺少图标)
-sudo ln -s /usr/share/icons/bloom/status/20/keyboard.svg /usr/share/icons/bloom/status/20/input-keyboard.svg
 sudo ln -s /usr/share/icons/bloom/status/20/keyboard-symbolic.svg /usr/share/icons/bloom/status/20/input-keyboard-symbolic.svg
