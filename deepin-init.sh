@@ -3,6 +3,15 @@
 #先进到用户下载目录
 cd ~/Downloads
 
+# 一些系统设置
+# 窗口圆角-中
+busctl --user set-property com.deepin.daemon.Appearance /com/deepin/daemon/Appearance com.deepin.daemon.Appearance WindowRadius i 8
+# 关闭自动更新
+busctl call com.deepin.lastore /com/deepin/lastore com.deepin.lastore.Updater SetAutoCheckUpdates b 0
+busctl call com.deepin.lastore /com/deepin/lastore com.deepin.lastore.Updater SetAutoDownloadUpdates b 0
+busctl call com.deepin.lastore /com/deepin/lastore com.deepin.lastore.Updater SetUpdateNotify b 0
+busctl call com.deepin.lastore /com/deepin/lastore com.deepin.lastore.Manager SetAutoClean b 0
+
 #添加Chrome源到source.list.d
 wget -q -O - http://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
@@ -22,6 +31,10 @@ sudo sh -c 'echo "deb https://typora.io/linux ./" > /etc/apt/sources.list.d/typo
 #添加Beyond Compare源到source.list.d
 wget -q -O - https://www.scootersoftware.com/RPM-GPG-KEY-scootersoftware | sudo apt-key add -
 sudo sh -c 'echo "deb https://www.scootersoftware.com/ bcompare4 non-free" > /etc/apt/sources.list.d/scootersoftware.list'
+
+#添加nodejs源到source.list.d
+wget -q -O - https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
+sudo sh -c 'echo "deb https://deb.nodesource.com/node_16.x buster main" > /etc/apt/sources.list.d/nodesource.list'
 
 #卸载系统自带Flash
 sudo apt-get purge -y libflashplugin-pepper
@@ -80,6 +93,7 @@ sudo apt-get install -y fcitx5-chinese-addons
 sudo apt-get install -y com.oray.sunlogin.client
 sudo apt-get install -y cn.wps.wps-office
 sudo apt-get install -y bcompare
+sudo apt-get install -y nodejs
 
 #删除Chrome推荐设置
 sudo rm /etc/opt/chrome/policies/recommended/*.json
