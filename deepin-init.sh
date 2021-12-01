@@ -47,7 +47,7 @@ sudo apt-get purge -y dde-introduction
 #卸载自己不需要的软件
 sudo apt-get purge -y deepin-feedback
 sudo apt-get purge -y deepin-appstore*
-sudo apt-get purge -y deepin-app-store*
+sudo apt-get purge -y deepin-app-store
 sudo apt-get purge -y deepin-music
 sudo apt-get purge -y deepin-calculator
 sudo apt-get purge -y deepin-deepinid-client
@@ -69,7 +69,9 @@ sudo apt-get purge -y fcitx*
 sudo apt-get purge -y org.deepin.browser
 sudo apt-get purge -y yelp
 sudo apt-get purge -y geoclue-2.0
-sudo apt-get purge -y redshift 
+sudo apt-get purge -y redshift
+sudo apt-get purge -y deepin-clone
+sudo apt-get purge -y deepin-recovery-plugin
 
 #清理一下
 sudo apt-get autoremove -y --purge
