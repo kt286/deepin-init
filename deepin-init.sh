@@ -104,6 +104,11 @@ sudo rm /etc/opt/chrome/policies/recommended/*.json
 mkdir -p ~/.config/autostart
 sudo cp /usr/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/org.fcitx.Fcitx5.desktop
 
+#
+sudo rm -rf /usr/share/icons/Adwaita/
+sudo rm -rf /usr/share/icons/Papirus/
+sudo rm -rf /usr/share/icons/Vintage/
+
 #更新TIM到最新版本
 sh -c  '/opt/apps/com.qq.office.deepin/files/run.sh -c'
 export WINEPREFIX=$HOME/.deepinwine/Deepin-TIM
