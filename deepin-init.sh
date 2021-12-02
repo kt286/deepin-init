@@ -104,10 +104,14 @@ sudo rm /etc/opt/chrome/policies/recommended/*.json
 mkdir -p ~/.config/autostart
 sudo cp /usr/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/org.fcitx.Fcitx5.desktop
 
-#
+#删除图标主题
 sudo rm -rf /usr/share/icons/Adwaita/
 sudo rm -rf /usr/share/icons/Papirus/
 sudo rm -rf /usr/share/icons/Vintage/
+sudo rm -rf /usr/share/icons/locolor/
+sudo rm -rf /usr/share/icons/HighContrast/
+sudo rm -rf /usr/share/icons/ubuntu-mono-dark/
+sudo rm -rf /usr/share/icons/ubuntu-mono-light/
 
 #更新TIM到最新版本
 sh -c  '/opt/apps/com.qq.office.deepin/files/run.sh -c'
