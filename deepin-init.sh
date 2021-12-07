@@ -48,32 +48,34 @@ sudo apt-get purge -y dde-introduction
 sudo apt-get purge -y deepin-feedback
 sudo apt-get purge -y deepin-appstore*
 sudo apt-get purge -y deepin-app-store
-sudo apt-get purge -y deepin-music
-sudo apt-get purge -y deepin-calculator
 sudo apt-get purge -y deepin-deepinid-client
 sudo apt-get purge -y deepin-sync-daemon
 sudo apt-get purge -y deepin-cloud-scanner
-sudo apt-get purge -y printer-driver-deepin-cloud-print
-sudo apt-get purge -y deepin-screensaver*
-sudo apt-get purge -y deepin-voice-recorder
-sudo apt-get purge -y deepin-screen-recorder
-sudo apt-get purge -y simple-scan
-sudo apt-get purge -y plymouth*
-sudo apt-get purge -y libreoffice*
+sudo apt-get purge -y deepin-music
+sudo apt-get purge -y deepin-calculator
 sudo apt-get purge -y deepin-draw
 sudo apt-get purge -y deepin-voice-note
 sudo apt-get purge -y deepin-album
 sudo apt-get purge -y deepin-camera
 sudo apt-get purge -y deepin-mail
-sudo apt-get purge -y fcitx*
+sudo apt-get purge -y deepin-screensaver*
+sudo apt-get purge -y deepin-voice-recorder
+sudo apt-get purge -y deepin-screen-recorder
+sudo apt-get purge -y deepin-clone
+sudo apt-get purge -y deepin-recovery-plugin
+sudo apt-get purge -y deepin-ab-recovery
+sudo apt-get purge -y deepin-gtk-theme
+sudo apt-get purge -y gnome-theme*
+sudo apt-get purge -y plymouth*
+sudo apt-get purge -y libreoffice*
+sudo apt-get purge -y simple-scan
+sudo apt-get purge -y printer-driver-deepin-cloud-print
 sudo apt-get purge -y org.deepin.browser
+sudo apt-get purge -y onboard-common
 sudo apt-get purge -y yelp
 sudo apt-get purge -y geoclue-2.0
 sudo apt-get purge -y redshift
-sudo apt-get purge -y deepin-clone
-sudo apt-get purge -y deepin-recovery-plugin
-sudo apt-get purge -y gnome-theme*
-sudo apt-get purge -y deepin-gtk-theme
+sudo apt-get purge -y fcitx*
 
 #清理一下
 sudo apt-get autoremove -y --purge
@@ -133,4 +135,5 @@ deepin-wine6-stable WeChatSetup.exe
 sudo apt-get autoremove -y --purge
 
 #设置fcitx图标(bloom主题缺少图标)
+sudo mv /usr/share/icons/bloom/actions/24/input-keyboard-symbolic.svg /usr/share/icons/bloom/actions/24/input-keyboard-symbolic.svg.bak
 sudo ln -s /usr/share/icons/bloom/status/20/keyboard-symbolic.svg /usr/share/icons/bloom/status/20/input-keyboard-symbolic.svg
