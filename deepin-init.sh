@@ -58,7 +58,7 @@ sudo apt-get purge -y deepin-screensaver*
 sudo apt-get purge -y deepin-voice-recorder
 sudo apt-get purge -y deepin-screen-recorder
 sudo apt-get purge -y simple-scan
-sudo apt-get purge -y plymouth-theme-deepin-logo
+sudo apt-get purge -y plymouth*
 sudo apt-get purge -y libreoffice*
 sudo apt-get purge -y deepin-draw
 sudo apt-get purge -y deepin-voice-note
@@ -72,6 +72,8 @@ sudo apt-get purge -y geoclue-2.0
 sudo apt-get purge -y redshift
 sudo apt-get purge -y deepin-clone
 sudo apt-get purge -y deepin-recovery-plugin
+sudo apt-get purge -y gnome-theme*
+sudo apt-get purge -y deepin-gtk-theme
 
 #清理一下
 sudo apt-get autoremove -y --purge
@@ -126,9 +128,6 @@ export WINEPREFIX=$HOME/.deepinwine/Deepin-WeChat
 rm WeChatSetup.exe
 wget -t 3 -T 15 https://dldir1.qq.com/weixin/Windows/WeChatSetup.exe
 deepin-wine6-stable WeChatSetup.exe
-
-# 修改开机logo为详细信息（个人喜好）
-sudo plymouth-set-default-theme -R details
 
 #清理一下
 sudo apt-get autoremove -y --purge
