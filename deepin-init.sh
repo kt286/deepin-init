@@ -64,7 +64,6 @@ sudo apt-get purge -y deepin-screen-recorder
 sudo apt-get purge -y deepin-clone
 sudo apt-get purge -y deepin-recovery-plugin
 sudo apt-get purge -y deepin-ab-recovery
-sudo apt-get purge -y deepin-gtk-theme
 sudo apt-get purge -y gnome-theme*
 sudo apt-get purge -y plymouth*
 sudo apt-get purge -y libreoffice*
@@ -100,6 +99,9 @@ sudo apt-get install -y com.oray.sunlogin.client
 sudo apt-get install -y cn.wps.wps-office
 sudo apt-get install -y bcompare
 sudo apt-get install -y nodejs
+
+#修复安装VSCode后，Win + E 打开的是VSCode
+xdg-mime default dde-file-manager.desktop inode/directory
 
 #删除Chrome推荐设置
 sudo rm /etc/opt/chrome/policies/recommended/*.json
