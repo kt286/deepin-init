@@ -83,8 +83,6 @@ sudo apt-get install -y curl
 sudo apt-get install -y git
 sudo apt-get install -y console-setup
 sudo apt-get install -y deepin-screenshot
-sudo apt-get install -y deepin-image-viewer
-sudo apt-get install -y dde-calendar
 sudo apt-get install -y qt5-qmake
 sudo apt-get install -y code
 sudo apt-get install -y google-chrome-stable
