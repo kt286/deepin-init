@@ -46,11 +46,8 @@ sudo apt-get purge -y dde-introduction
 
 #卸载自己不需要的软件
 sudo apt-get purge -y deepin-feedback
-sudo apt-get purge -y deepin-appstore*
 sudo apt-get purge -y deepin-app-store
 sudo apt-get purge -y deepin-deepinid-client
-sudo apt-get purge -y deepin-sync-daemon
-sudo apt-get purge -y deepin-cloud-scanner
 sudo apt-get purge -y deepin-music
 sudo apt-get purge -y deepin-calculator
 sudo apt-get purge -y deepin-draw
@@ -59,11 +56,12 @@ sudo apt-get purge -y deepin-album
 sudo apt-get purge -y deepin-camera
 sudo apt-get purge -y deepin-mail
 sudo apt-get purge -y deepin-screensaver*
-sudo apt-get purge -y deepin-voice-recorder
 sudo apt-get purge -y deepin-screen-recorder
 sudo apt-get purge -y deepin-clone
 sudo apt-get purge -y deepin-recovery-plugin
 sudo apt-get purge -y deepin-ab-recovery
+sudo apt-get purge -y deepin-boot-maker
+sudo apt-get purge -y com.deepin*
 sudo apt-get purge -y gnome-theme*
 sudo apt-get purge -y plymouth*
 sudo apt-get purge -y libreoffice*
@@ -99,6 +97,11 @@ sudo apt-get install -y com.oray.sunlogin.client
 sudo apt-get install -y cn.wps.wps-office
 sudo apt-get install -y bcompare
 sudo apt-get install -y nodejs
+
+#隐藏启动器中 Device Formatter、fcitx5配置、键盘布局查看工具
+sudo sed -i '$a\NoDisplay=true' /usr/share/applications/dde-device-formatter.desktop
+sudo sed -i '$a\NoDisplay=true' /usr/share/applications/fcitx5-configtool.desktop 
+sudo sed -i '$a\NoDisplay=true' /usr/share/applications/kbd-layout-viewer5.desktop
 
 #修复安装VSCode后，Win + E 打开的是VSCode
 xdg-mime default dde-file-manager.desktop inode/directory
