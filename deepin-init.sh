@@ -96,6 +96,10 @@ sudo apt-get install -y cn.wps.wps-office
 sudo apt-get install -y bcompare
 sudo apt-get install -y nodejs
 
+#安装nvidia闭源驱动
+sudo apt-get install -y nvidia-detect
+nvidia-detect | awk 'match($0, /nvidia-.*/, a) {print a[0]}' | xargs sudo apt-get install
+
 #隐藏启动器中 Device Formatter、fcitx5配置、键盘布局查看工具
 sudo sed -i '$a\NoDisplay=true' /usr/share/applications/dde-device-formatter.desktop
 sudo sed -i '$a\NoDisplay=true' /usr/share/applications/fcitx5-configtool.desktop 
