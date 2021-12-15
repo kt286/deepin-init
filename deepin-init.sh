@@ -105,6 +105,19 @@ sudo sed -i '$a\NoDisplay=true' /usr/share/applications/dde-device-formatter.des
 sudo sed -i '$a\NoDisplay=true' /usr/share/applications/fcitx5-configtool.desktop 
 sudo sed -i '$a\NoDisplay=true' /usr/share/applications/kbd-layout-viewer5.desktop
 
+#修复命令行安装TIM、微信、向日葵、WPS，启动器中没有图标
+cp -r /opt/apps/com.qq.office.deepin/entries/icons/* ~/.local/share/icons/
+cp -r /opt/apps/com.qq.office.deepin/entries/applications/* ~/.local/share/applications/
+
+cp -r /opt/apps/com.qq.weixin.deepin/entries/icons/* ~/.local/share/icons/
+cp -r /opt/apps/com.qq.weixin.deepin/entries/applications/* ~/.local/share/applications/
+
+cp -r /opt/apps/com.oray.sunlogin.client/entries/icons/* ~/.local/share/icons/
+cp -r /opt/apps/com.oray.sunlogin.client/entries/applications/* ~/.local/share/applications/
+
+cp -r /opt/apps/cn.wps.wps-office/entries/icons/* ~/.local/share/icons/
+cp -r /opt/apps/cn.wps.wps-office/entries/applications/* ~/.local/share/applications/
+
 #修复安装VSCode后，Win + E 打开的是VSCode
 xdg-mime default dde-file-manager.desktop inode/directory
 
