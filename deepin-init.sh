@@ -118,6 +118,9 @@ cp -r /opt/apps/com.oray.sunlogin.client/entries/applications/* ~/.local/share/a
 cp -r /opt/apps/cn.wps.wps-office/entries/icons/* ~/.local/share/icons/
 cp -r /opt/apps/cn.wps.wps-office/entries/applications/* ~/.local/share/applications/
 
+#修复卸载多个软件后重启，启动器中又出现已卸载的图标
+rm -rf ~/.config/deepin/dde-launcher-app-used-sorted-list.conf
+
 #修复安装VSCode后，Win + E 打开的是VSCode
 xdg-mime default dde-file-manager.desktop inode/directory
 
