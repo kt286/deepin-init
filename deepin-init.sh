@@ -5,11 +5,28 @@ cd ~/Downloads
 
 # 系统设置
 gsettings set com.deepin.xsettings dtk-window-radius 8  # 窗口圆角-中
+
 gsettings set com.deepin.dde.dock display-mode 'efficient'  # dock-高效模式
 gsettings set com.deepin.dde.dock window-size-efficient 46  # dock-高度增加
+
 gsettings set com.deepin.dde.dock.module.multitasking enable false  # dock-禁用多任务窗口插件（待调整为只关闭，不禁用）
 gsettings set com.deepin.dde.dock.module.show-desktop enable false  # dock-禁用显示桌面插件（待调整为只关闭，不禁用）
-# 关闭自动更新
+
+gsettings set com.deepin.dde.mouse disable-touchpad true  #插入鼠标时禁用触控板
+
+gsettings set com.deepin.dde.power battery-lid-closed-action 'turnOffScreen' #使用电池-笔记本合盖时-关闭屏幕
+gsettings set com.deepin.dde.power battery-press-power-button 'showSessionUI' #使用电池-按电源按钮时-不做任何操作
+gsettings set com.deepin.dde.power battery-lock-delay 0  #使用电池-自动锁屏 从不
+gsettings set com.deepin.dde.power battery-screen-black-delay 300  #使用电池-关闭显示器 5分钟
+gsettings set com.deepin.dde.power battery-sleep-delay 0  #使用电池-进入待机模式 从不
+
+gsettings set com.deepin.dde.power line-power-lid-closed-action 'turnOffScreen' #连接电源-笔记本合盖时-关闭屏幕
+gsettings set com.deepin.dde.power line-power-press-power-button 'showSessionUI' #连接电源-按电源按钮时-不做任何操作
+gsettings set com.deepin.dde.power line-power-lock-delay 0  #连接电源-自动锁屏 从不
+gsettings set com.deepin.dde.power line-power-screen-black-delay 900  #连接电源-关闭显示器 15分钟
+gsettings set com.deepin.dde.power line-power-sleep-delay 0  #连接电源-进入待机模式 从不
+
+# 关闭控制中心自动更新
 busctl call com.deepin.lastore /com/deepin/lastore com.deepin.lastore.Updater SetAutoCheckUpdates b 0
 busctl call com.deepin.lastore /com/deepin/lastore com.deepin.lastore.Updater SetAutoDownloadUpdates b 0
 busctl call com.deepin.lastore /com/deepin/lastore com.deepin.lastore.Updater SetUpdateNotify b 0
