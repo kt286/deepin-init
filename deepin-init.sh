@@ -3,9 +3,12 @@
 #先进到用户下载目录
 cd ~/Downloads
 
-# 一些系统设置
-# 窗口圆角-中
-busctl --user set-property com.deepin.daemon.Appearance /com/deepin/daemon/Appearance com.deepin.daemon.Appearance WindowRadius i 8
+# 系统设置
+gsettings set com.deepin.xsettings dtk-window-radius 8  # 窗口圆角-中
+gsettings set com.deepin.dde.dock display-mode 'efficient'  # dock-高效模式
+gsettings set com.deepin.dde.dock window-size-efficient 46  # dock-高度增加
+gsettings set com.deepin.dde.dock.module.multitasking enable false  # dock-禁用多任务窗口插件（待调整为只关闭，不禁用）
+gsettings set com.deepin.dde.dock.module.show-desktop enable false  # dock-禁用显示桌面插件（待调整为只关闭，不禁用）
 # 关闭自动更新
 busctl call com.deepin.lastore /com/deepin/lastore com.deepin.lastore.Updater SetAutoCheckUpdates b 0
 busctl call com.deepin.lastore /com/deepin/lastore com.deepin.lastore.Updater SetAutoDownloadUpdates b 0
