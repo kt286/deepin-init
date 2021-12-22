@@ -162,6 +162,18 @@ sudo rm -rf /usr/share/icons/HighContrast/
 sudo rm -rf /usr/share/icons/ubuntu-mono-dark/
 sudo rm -rf /usr/share/icons/ubuntu-mono-light/
 
+#TIM使用公共deepin-wine6-stable
+sudo rm -rf /opt/apps/com.qq.office.deepin/files/helper_archive.7z 
+sudo rm -rf /opt/apps/com.qq.office.deepin/files/helper_archive.md5sum 
+sudo rm -rf /opt/apps/com.qq.office.deepin/files/wine_archive.7z 
+sudo rm -rf /opt/apps/com.qq.office.deepin/files/wine_archive.md5sum 
+sudo cp /opt/apps/com.qq.office.deepin/files/run.sh /opt/apps/com.qq.office.deepin/files/run.sh.bak
+sudo cp -r /opt/apps/com.qq.weixin.deepin/files/run.sh /opt/apps/com.qq.office.deepin/files/run.sh
+sudo sed -i 's/Deepin-WeChat/Deepin-TIM/g' /opt/apps/com.qq.office.deepin/files/run.sh
+sudo sed -i 's/3.2.1.154deepin14/3.3.5.22018deepin8/g' /opt/apps/com.qq.office.deepin/files/run.sh
+sudo sed -i 's/WeChat\/WeChat/TIM\/Bin\/TIM/g' /opt/apps/com.qq.office.deepin/files/run.sh
+sudo sed -i 's/com.qq.weixin.deepin/com.qq.office.deepin/g' /opt/apps/com.qq.office.deepin/files/run.sh
+
 #更新TIM到最新版本
 sh -c  '/opt/apps/com.qq.office.deepin/files/run.sh -c'
 export WINEPREFIX=$HOME/.deepinwine/Deepin-TIM
