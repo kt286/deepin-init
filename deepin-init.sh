@@ -126,6 +126,8 @@ sudo sed -i '$a\NoDisplay=true' /usr/share/applications/fcitx5-configtool.deskto
 sudo sed -i '$a\NoDisplay=true' /usr/share/applications/kbd-layout-viewer5.desktop
 
 #修复命令行安装TIM、微信、向日葵、WPS，启动器中没有图标
+mkdir -p ~/.local/share/applications/
+
 cp -r /opt/apps/com.qq.office.deepin/entries/icons/* ~/.local/share/icons/
 cp -r /opt/apps/com.qq.office.deepin/entries/applications/* ~/.local/share/applications/
 
