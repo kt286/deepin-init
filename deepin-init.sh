@@ -3,6 +3,12 @@
 #先进到用户下载目录
 cd ~/Downloads
 
+# 关闭控制中心自动更新
+busctl call com.deepin.lastore /com/deepin/lastore com.deepin.lastore.Updater SetAutoCheckUpdates b 0
+busctl call com.deepin.lastore /com/deepin/lastore com.deepin.lastore.Updater SetAutoDownloadUpdates b 0
+busctl call com.deepin.lastore /com/deepin/lastore com.deepin.lastore.Updater SetUpdateNotify b 0
+busctl call com.deepin.lastore /com/deepin/lastore com.deepin.lastore.Manager SetAutoClean b 0
+
 # 系统设置
 gsettings set com.deepin.xsettings dtk-window-radius 8  # 窗口圆角-中
 
@@ -25,12 +31,6 @@ gsettings set com.deepin.dde.power line-power-press-power-button 'showSessionUI'
 gsettings set com.deepin.dde.power line-power-lock-delay 0  #连接电源-自动锁屏 从不
 gsettings set com.deepin.dde.power line-power-screen-black-delay 900  #连接电源-关闭显示器 15分钟
 gsettings set com.deepin.dde.power line-power-sleep-delay 0  #连接电源-进入待机模式 从不
-
-# 关闭控制中心自动更新
-busctl call com.deepin.lastore /com/deepin/lastore com.deepin.lastore.Updater SetAutoCheckUpdates b 0
-busctl call com.deepin.lastore /com/deepin/lastore com.deepin.lastore.Updater SetAutoDownloadUpdates b 0
-busctl call com.deepin.lastore /com/deepin/lastore com.deepin.lastore.Updater SetUpdateNotify b 0
-busctl call com.deepin.lastore /com/deepin/lastore com.deepin.lastore.Manager SetAutoClean b 0
 
 #添加Chrome源到source.list.d
 wget -q -O - http://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
@@ -55,6 +55,9 @@ sudo sh -c 'echo "deb https://www.scootersoftware.com/ bcompare4 non-free" > /et
 #添加nodejs源到source.list.d
 wget -q -O - https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
 sudo sh -c 'echo "deb https://deb.nodesource.com/node_16.x buster main" > /etc/apt/sources.list.d/nodesource.list'
+
+#添内测源到source.list.d
+sudo sh -c 'echo "deb [trusted=yes] https://proposed-packages.deepin.com/dde-apricot unstable main contrib non-free" > /etc/apt/sources.list.d/deepin-unstable.list'
 
 #卸载系统自带Flash
 sudo apt-get purge -y libflashplugin-pepper
@@ -163,10 +166,11 @@ sudo rm -rf /usr/share/icons/ubuntu-mono-dark/
 sudo rm -rf /usr/share/icons/ubuntu-mono-light/
 
 #TIM使用公共deepin-wine6-stable
-sudo rm -rf /opt/apps/com.qq.office.deepin/files/helper_archive.7z 
-sudo rm -rf /opt/apps/com.qq.office.deepin/files/helper_archive.md5sum 
-sudo rm -rf /opt/apps/com.qq.office.deepin/files/wine_archive.7z 
-sudo rm -rf /opt/apps/com.qq.office.deepin/files/wine_archive.md5sum 
+sudo rm -rf /opt/apps/com.qq.office.deepin/files/helper_archive.7z
+sudo rm -rf /opt/apps/com.qq.office.deepin/files/helper_archive.md5sum
+sudo rm -rf /opt/apps/com.qq.office.deepin/files/wine_archive.7z
+sudo rm -rf /opt/apps/com.qq.office.deepin/files/wine_archive.md5sum
+
 sudo cp /opt/apps/com.qq.office.deepin/files/run.sh /opt/apps/com.qq.office.deepin/files/run.sh.bak
 sudo cp -r /opt/apps/com.qq.weixin.deepin/files/run.sh /opt/apps/com.qq.office.deepin/files/run.sh
 sudo sed -i 's/Deepin-WeChat/Deepin-TIM/g' /opt/apps/com.qq.office.deepin/files/run.sh
