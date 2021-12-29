@@ -83,18 +83,26 @@ sudo apt-get purge -y deepin-clone
 sudo apt-get purge -y deepin-recovery-plugin
 sudo apt-get purge -y deepin-ab-recovery
 sudo apt-get purge -y deepin-boot-maker
-sudo apt-get purge -y com.deepin*
 sudo apt-get purge -y gnome-theme*
-sudo apt-get purge -y plymouth*
 sudo apt-get purge -y libreoffice*
 sudo apt-get purge -y simple-scan
 sudo apt-get purge -y printer-driver-deepin-cloud-print
 sudo apt-get purge -y org.deepin.browser
-sudo apt-get purge -y onboard-common
 sudo apt-get purge -y yelp
+sudo apt-get purge -y fcitx*
+
+#这两个是控制中心里修改屏幕色温的，但是切换英伟达驱动后无法修改，所以卸载
 sudo apt-get purge -y geoclue-2.0
 sudo apt-get purge -y redshift
-sudo apt-get purge -y fcitx*
+
+#更新20.3内测后，卸载这个会导致无法右键跳转到设置，酌情卸载
+sudo apt-get purge -y onboard-common
+
+#这个是用来开关机画面的，我个人喜欢看开机输出文字信息，所以卸载
+sudo apt-get purge -y plymouth*
+
+#这几个是系统自带小游戏（五子棋和连连看）
+sudo apt-get purge -y com.deepin*
 
 #清理一下
 sudo apt-get autoremove -y --purge
