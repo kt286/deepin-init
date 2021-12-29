@@ -79,7 +79,6 @@ sudo apt-get purge -y deepin-album
 sudo apt-get purge -y deepin-camera
 sudo apt-get purge -y deepin-mail
 sudo apt-get purge -y deepin-screensaver*
-sudo apt-get purge -y deepin-screen-recorder
 sudo apt-get purge -y deepin-clone
 sudo apt-get purge -y deepin-recovery-plugin
 sudo apt-get purge -y deepin-ab-recovery
@@ -105,7 +104,6 @@ sudo apt-get update && sudo apt-get dist-upgrade -y
 sudo apt-get install -y curl
 sudo apt-get install -y git
 sudo apt-get install -y console-setup
-sudo apt-get install -y deepin-screenshot
 sudo apt-get install -y qt5-qmake
 sudo apt-get install -y code
 sudo apt-get install -y google-chrome-stable
@@ -118,6 +116,9 @@ sudo apt-get install -y com.oray.sunlogin.client
 sudo apt-get install -y cn.wps.wps-office
 sudo apt-get install -y bcompare
 sudo apt-get install -y nodejs
+
+#卸载fcitx时会同时卸载qdbus，导致截图录屏无法使用快捷键呼出，重新安装修复(安装 qdbus-qt5 也可以，不知道有什么区别)
+sudo apt-get install -y qdbus
 
 #安装nvidia闭源驱动
 sudo apt-get install -y nvidia-detect
