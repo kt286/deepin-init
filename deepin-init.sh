@@ -190,9 +190,9 @@ sudo sed -i 's/com.qq.weixin.deepin/com.qq.office.deepin/g' /opt/apps/com.qq.off
 #更新TIM到最新版本
 sh -c  '/opt/apps/com.qq.office.deepin/files/run.sh -c'
 export WINEPREFIX=$HOME/.deepinwine/Deepin-TIM
-rm TIM3.3.8.22043.exe
-wget -t 3 -T 15 https://dldir1.qq.com/qqfile/qq/PCTIM/TIM3.3.8/TIM3.3.8.22043.exe
-deepin-wine6-stable TIM3.3.8.22043.exe
+rm TIM3.3.9.22051.exe
+wget -t 3 -T 15 https://dldir1.qq.com/qqfile/qq/TIM3.3.9/TIM3.3.9.22051.exe
+deepin-wine6-stable TIM3.3.9.22051.exe
 
 #更新微信到最新版本
 sh -c  '/opt/apps/com.qq.weixin.deepin/files/run.sh -c'
