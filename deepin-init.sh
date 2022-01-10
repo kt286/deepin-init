@@ -117,20 +117,21 @@ sudo apt-get install -y code
 sudo apt-get install -y google-chrome-stable
 sudo apt-get install -y com.qq.office.deepin
 sudo apt-get install -y com.qq.weixin.deepin
+sudo apt-get install -y com.oray.sunlogin.client
+sudo apt-get install -y cn.wps.wps-office
 sudo apt-get install -y docker-ce
 sudo apt-get install -y typora
 sudo apt-get install -y fcitx5-chinese-addons
-sudo apt-get install -y com.oray.sunlogin.client
-sudo apt-get install -y cn.wps.wps-office
 sudo apt-get install -y bcompare
 sudo apt-get install -y nodejs
+sudo apt-get install -y remmina
 
 #卸载fcitx时会同时卸载qdbus，导致截图录屏无法使用快捷键呼出，重新安装修复(安装 qdbus-qt5 也可以，不知道有什么区别)
 sudo apt-get install -y qdbus
 
 #安装nvidia闭源驱动
 sudo apt-get install -y nvidia-detect
-nvidia-detect | awk 'match($0, /nvidia-.*/, a) {print a[0]}' | xargs sudo apt-get install
+nvidia-detect | awk 'match($0, /nvidia-.*/, a) {print a[0]}' | xargs sudo apt-get -y install
 
 #隐藏启动器中 Device Formatter、fcitx5配置、键盘布局查看工具
 sudo sed -i '$a\NoDisplay=true' /usr/share/applications/dde-device-formatter.desktop
@@ -207,3 +208,6 @@ sudo apt-get autoremove -y --purge
 #设置fcitx图标(bloom主题缺少图标)
 sudo mv /usr/share/icons/bloom/actions/24/input-keyboard-symbolic.svg /usr/share/icons/bloom/actions/24/input-keyboard-symbolic.svg.bak
 sudo ln -s /usr/share/icons/bloom/status/20/keyboard-symbolic.svg /usr/share/icons/bloom/status/20/input-keyboard-symbolic.svg
+
+#最后重启一下
+reboot
