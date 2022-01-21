@@ -71,7 +71,6 @@ sudo apt-get purge -y dde-introduction
 sudo apt-get purge -y deepin-feedback
 sudo apt-get purge -y deepin-app-store
 sudo apt-get purge -y deepin-deepinid-client
-sudo apt-get purge -y deepin-music
 sudo apt-get purge -y deepin-calculator
 sudo apt-get purge -y deepin-draw
 sudo apt-get purge -y deepin-voice-note
@@ -95,8 +94,8 @@ sudo apt-get purge -y fcitx*
 sudo apt-get purge -y geoclue-2.0
 sudo apt-get purge -y redshift
 
-#更新20.3内测后，卸载这个会导致无法右键跳转到设置，酌情卸载
-sudo apt-get purge -y onboard-common
+#更新20.4后，卸载这个会导致无法右键跳转到设置，酌情卸载
+#sudo apt-get purge -y onboard-common
 
 #这个是用来开关机画面的，我个人喜欢看开机输出文字信息，所以卸载
 sudo apt-get purge -y plymouth*
@@ -133,8 +132,7 @@ sudo apt-get install -y qdbus
 sudo apt-get install -y nvidia-detect
 nvidia-detect | awk 'match($0, /nvidia-.*/, a) {print a[0]}' | xargs sudo apt-get -y install
 
-#隐藏启动器中 Device Formatter、fcitx5配置、键盘布局查看工具
-sudo sed -i '$a\NoDisplay=true' /usr/share/applications/dde-device-formatter.desktop
+#隐藏启动器中 fcitx5配置、键盘布局查看工具
 sudo sed -i '$a\NoDisplay=true' /usr/share/applications/fcitx5-configtool.desktop 
 sudo sed -i '$a\NoDisplay=true' /usr/share/applications/kbd-layout-viewer5.desktop
 

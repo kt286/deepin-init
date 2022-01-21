@@ -11,7 +11,7 @@ sh deepin-init.sh
 
 ## 当前版本
 
-`20.3.x stable`
+`20.4.x stable`
 
 ## 下载地址
 
