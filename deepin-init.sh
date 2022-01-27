@@ -51,6 +51,7 @@ sudo sh -c 'echo "deb https://typora.io/linux ./" > /etc/apt/sources.list.d/typo
 #添加Beyond Compare源到source.list.d
 wget -q -O - https://www.scootersoftware.com/RPM-GPG-KEY-scootersoftware | sudo apt-key add -
 sudo sh -c 'echo "deb https://www.scootersoftware.com/ bcompare4 non-free" > /etc/apt/sources.list.d/scootersoftware.list'
+sudo sh -c 'echo "Package: bcompare\nPin: origin www.scootersoftware.com\nPin-Priority: 600" > /etc/apt/preferences.d/scootersoftware'
 
 #添加nodejs源到source.list.d
 wget -q -O - https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
