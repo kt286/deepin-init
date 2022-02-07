@@ -166,8 +166,8 @@ mkdir -p ~/.config/autostart
 sudo cp /usr/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/org.fcitx.Fcitx5.desktop
 
 #使用自己编译的深度音乐
-wget -t 3 -T 15 https://storage.deepin.org/thread/202201192347578553_deepin-music.zip
-unzip 202201192347578553_deepin-music.zip
+wget -t 3 -T 15 https://storage.deepin.org/thread/202202072120231211_deepin-music.zip
+unzip 202202072120231211_deepin-music.zip
 rm -rf ~/.cache/deepin/deepin-music/
 sudo mv /usr/bin/deepin-music /usr/bin/deepin-music.bak
 sudo cp deepin-music /usr/bin/deepin-music
