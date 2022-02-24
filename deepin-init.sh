@@ -208,6 +208,11 @@ rm WeChatSetup.exe
 wget -t 3 -T 15 https://dldir1.qq.com/weixin/Windows/WeChatSetup.exe
 deepin-wine6-stable WeChatSetup.exe
 
+#大幅降低微信内存占用（牺牲小程序和公众号，慎用）
+rm -rf ~/.deepinwine/Deepin-WeChat/drive_c/users/$(whoami)/Application\ Data/Tencent/WeChat/XPlugin/Plugins/XWeb/
+touch ~/.deepinwine/Deepin-WeChat/drive_c/users/$(whoami)/Application\ Data/Tencent/WeChat/XPlugin/Plugins/XWeb
+chmod 000 ~/.deepinwine/Deepin-WeChat/drive_c/users/$(whoami)/Application\ Data/Tencent/WeChat/XPlugin/Plugins/XWeb 
+
 #清理一下
 sudo apt-get autoremove -y --purge
 
