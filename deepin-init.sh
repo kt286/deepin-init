@@ -112,7 +112,7 @@ sudo apt-get update && sudo apt-get dist-upgrade -y
 sudo apt-get install -y curl
 sudo apt-get install -y git
 sudo apt-get install -y console-setup
-sudo apt-get install -y qt5-qmake
+sudo apt-get install -y cmake-extras
 sudo apt-get install -y code
 sudo apt-get install -y google-chrome-stable
 sudo apt-get install -y com.qq.office.deepin
@@ -165,21 +165,26 @@ sudo rm /etc/opt/chrome/policies/recommended/*.json
 mkdir -p ~/.config/autostart
 sudo cp /usr/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/org.fcitx.Fcitx5.desktop
 
-#使用自己编译的深度音乐
-wget -t 3 -T 15 https://storage.deepin.org/thread/202202072120231211_deepin-music.zip
-unzip 202202072120231211_deepin-music.zip
-rm -rf ~/.cache/deepin/deepin-music/
-sudo mv /usr/bin/deepin-music /usr/bin/deepin-music.bak
-sudo cp deepin-music /usr/bin/deepin-music
+#fcitx5图标美化
+wget -t 3 -T 15 https://raw.githubusercontent.com/kt286/deepin-init/master/assets/pinyin.svg
+sudo cp pinyin.svg /usr/share/icons/bloom/apps/64/org.fcitx.Fcitx5.svg
+sudo cp pinyin.svg /usr/share/icons/bloom/apps/64/org.fcitx.Fcitx5.fcitx-pinyin.svg
 
-#删除图标主题
-sudo rm -rf /usr/share/icons/Adwaita/
-sudo rm -rf /usr/share/icons/Papirus/
-sudo rm -rf /usr/share/icons/Vintage/
-sudo rm -rf /usr/share/icons/locolor/
-sudo rm -rf /usr/share/icons/HighContrast/
-sudo rm -rf /usr/share/icons/ubuntu-mono-dark/
-sudo rm -rf /usr/share/icons/ubuntu-mono-light/
+sudo mv /usr/share/icons/bloom/actions/24/input-keyboard-symbolic.svg /usr/share/icons/bloom/actions/24/input-keyboard-symbolic.svg.bak
+sudo ln -s /usr/share/icons/bloom/status/20/keyboard-symbolic.svg /usr/share/icons/bloom/status/20/input-keyboard-symbolic.svg
+
+#fcitx5词库
+wget -t 3 -T 15 https://github.com/felixonmars/fcitx5-pinyin-zhwiki/releases/download/0.2.3/zhwiki-20220226.dict
+sudo cp zhwiki-20220226.dict ~/.local/share/fcitx5/pinyin/dictionaries/fcitx5-pinyin-zhwiki.dict
+
+#fcitx5皮肤
+mkdir -p ~/.local/share/fcitx5/themes/Material-Color
+git clone https://github.com/hosxy/Fcitx5-Material-Color.git ~/.local/share/fcitx5/themes/Material-Color
+ln -s ~/.local/share/fcitx5/themes/Material-Color/theme-blue.conf ~/.local/share/fcitx5/themes/Material-Colortheme.conf
+
+#使用自己编译的深度音乐
+wget -t 3 -T 15 https://raw.githubusercontent.com/kt286/deepin-init/master/assets/deepin-music
+sudo cp deepin-music /usr/bin/deepin-music
 
 #TIM使用公共deepin-wine6-stable
 sudo rm -rf /opt/apps/com.qq.office.deepin/files/helper_archive.7z
@@ -215,10 +220,3 @@ chmod 000 ~/.deepinwine/Deepin-WeChat/drive_c/users/$(whoami)/Application\ Data/
 
 #清理一下
 sudo apt-get autoremove -y --purge
-
-#设置fcitx图标(bloom主题缺少图标)
-sudo mv /usr/share/icons/bloom/actions/24/input-keyboard-symbolic.svg /usr/share/icons/bloom/actions/24/input-keyboard-symbolic.svg.bak
-sudo ln -s /usr/share/icons/bloom/status/20/keyboard-symbolic.svg /usr/share/icons/bloom/status/20/input-keyboard-symbolic.svg
-
-#最后重启一下
-reboot
