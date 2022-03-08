@@ -89,11 +89,8 @@ sudo apt-get purge -y simple-scan
 sudo apt-get purge -y printer-driver-deepin-cloud-print
 sudo apt-get purge -y org.deepin.browser
 sudo apt-get purge -y yelp
+sudo apt-get purge -y deepin-forum
 sudo apt-get purge -y fcitx*
-
-#这两个是控制中心里修改屏幕色温的，但是切换英伟达驱动后无法修改，所以卸载
-sudo apt-get purge -y geoclue-2.0
-sudo apt-get purge -y redshift
 
 #更新20.4后，卸载这个会导致无法右键跳转到设置，酌情卸载
 #sudo apt-get purge -y onboard-common
@@ -133,6 +130,10 @@ sudo apt-get install -y qdbus
 sudo apt-get install -y nvidia-detect
 nvidia-detect | awk 'match($0, /nvidia-.*/, a) {print a[0]}' | xargs sudo apt-get -y install
 
+#安装任务栏显卡驱动切换插件
+wget -t 3 -T 15 https://github.com/zty199/dde-dock-switch_graphics_card/releases/download/v1.8.4-1/dde-dock-graphics-plugin_1.8.4-1_amd64.deb
+sudo apt-get install -y ./dde-dock-graphics-plugin_1.8.4-1_amd64.deb
+
 #隐藏启动器中 fcitx5配置、键盘布局查看工具
 sudo sed -i '$a\NoDisplay=true' /usr/share/applications/fcitx5-configtool.desktop 
 sudo sed -i '$a\NoDisplay=true' /usr/share/applications/kbd-layout-viewer5.desktop
@@ -166,14 +167,15 @@ mkdir -p ~/.config/autostart
 sudo cp /usr/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/org.fcitx.Fcitx5.desktop
 
 #fcitx5图标美化
-wget -t 3 -T 15 https://raw.githubusercontent.com/kt286/deepin-init/master/assets/pinyin.svg
-sudo cp pinyin.svg /usr/share/icons/bloom/apps/64/org.fcitx.Fcitx5.svg
-sudo cp pinyin.svg /usr/share/icons/bloom/apps/64/org.fcitx.Fcitx5.fcitx-pinyin.svg
+#wget -t 3 -T 15 https://raw.githubusercontent.com/kt286/deepin-init/master/assets/pinyin.svg
+#sudo cp pinyin.svg /usr/share/icons/bloom/apps/64/org.fcitx.Fcitx5.svg
+#sudo cp pinyin.svg /usr/share/icons/bloom/apps/64/org.fcitx.Fcitx5.fcitx-pinyin.svg
 
 sudo mv /usr/share/icons/bloom/actions/24/input-keyboard-symbolic.svg /usr/share/icons/bloom/actions/24/input-keyboard-symbolic.svg.bak
 sudo ln -s /usr/share/icons/bloom/status/20/keyboard-symbolic.svg /usr/share/icons/bloom/status/20/input-keyboard-symbolic.svg
 
 #fcitx5词库
+mkdir -p ~/.local/share/fcitx5/pinyin/dictionaries
 wget -t 3 -T 15 https://github.com/felixonmars/fcitx5-pinyin-zhwiki/releases/download/0.2.3/zhwiki-20220226.dict
 sudo cp zhwiki-20220226.dict ~/.local/share/fcitx5/pinyin/dictionaries/fcitx5-pinyin-zhwiki.dict
 
