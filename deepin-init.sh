@@ -110,6 +110,7 @@ sudo apt-get install -y curl
 sudo apt-get install -y git
 sudo apt-get install -y console-setup
 sudo apt-get install -y cmake-extras
+sudo apt-get install -y extra-cmake-modules
 sudo apt-get install -y code
 sudo apt-get install -y google-chrome-stable
 sudo apt-get install -y com.qq.office.deepin
@@ -133,6 +134,13 @@ nvidia-detect | awk 'match($0, /nvidia-.*/, a) {print a[0]}' | xargs sudo apt-ge
 #安装任务栏显卡驱动切换插件
 wget -t 3 -T 15 https://github.com/zty199/dde-dock-switch_graphics_card/releases/download/v1.8.4-1/dde-dock-graphics-plugin_1.8.4-1_amd64.deb
 sudo apt-get install -y ./dde-dock-graphics-plugin_1.8.4-1_amd64.deb
+
+#用于编译fcitx5-rime
+sudo apt-get install -y libecm-dev
+sudo apt-get install -y libfcitx5core-dev
+sudo apt-get install -y fcitx5-modules-dev
+sudo apt-get install -y librime-dev
+sudo apt-get install -y appstream
 
 #隐藏启动器中 fcitx5配置、键盘布局查看工具
 sudo sed -i '$a\NoDisplay=true' /usr/share/applications/fcitx5-configtool.desktop 
@@ -183,6 +191,20 @@ sudo cp zhwiki-20220226.dict ~/.local/share/fcitx5/pinyin/dictionaries/fcitx5-pi
 mkdir -p ~/.local/share/fcitx5/themes/Material-Color
 git clone https://github.com/hosxy/Fcitx5-Material-Color.git ~/.local/share/fcitx5/themes/Material-Color
 ln -s ~/.local/share/fcitx5/themes/Material-Color/theme-blue.conf ~/.local/share/fcitx5/themes/Material-Colortheme.conf
+
+#编译fcitx5-rime
+mkdir -p ~/workspace
+cd ~/workspace
+git clone https://github.com/fcitx/fcitx5-rime.git
+cd fcitx5-rime
+mkdir build
+cd build
+cmake .. -DCMAKE_INSTALL_PREFIX=/usr
+make -j4
+sudo make install
+
+#返回用户下载目录
+cd ~/Downloads
 
 #使用自己编译的深度音乐
 wget -t 3 -T 15 https://raw.githubusercontent.com/kt286/deepin-init/master/assets/deepin-music
