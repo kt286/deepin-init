@@ -193,12 +193,10 @@ git clone https://github.com/hosxy/Fcitx5-Material-Color.git ~/.local/share/fcit
 ln -s ~/.local/share/fcitx5/themes/Material-Color/theme-blue.conf ~/.local/share/fcitx5/themes/Material-Colortheme.conf
 
 #编译fcitx5-rime
-mkdir -p ~/workspace
-cd ~/workspace
-git clone https://github.com/fcitx/fcitx5-rime.git
-cd fcitx5-rime
-mkdir build
-cd build
+mkdir -p ~/workspace/fcitx5-rime
+git clone https://github.com/fcitx/fcitx5-rime.git ~/workspace/fcitx5-rime
+mkdir -p ~/workspace/fcitx5-rime/build
+cd ~/workspace/fcitx5-rime/build
 cmake .. -DCMAKE_INSTALL_PREFIX=/usr
 make -j4
 sudo make install
