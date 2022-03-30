@@ -33,8 +33,8 @@ gsettings set com.deepin.dde.power line-power-screen-black-delay 900  #连接电
 gsettings set com.deepin.dde.power line-power-sleep-delay 0  #连接电源-进入待机模式 从不
 
 #添加Chrome源到source.list.d
-wget -q -O - http://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
+wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+sudo sh -c 'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
 
 #添加VSCode源到source.list.d
 wget -q -O - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
