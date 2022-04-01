@@ -111,6 +111,7 @@ sudo apt-get install -y git
 sudo apt-get install -y console-setup
 sudo apt-get install -y cmake-extras
 sudo apt-get install -y extra-cmake-modules
+sudo apt-get install -y build-essential
 sudo apt-get install -y code
 sudo apt-get install -y google-chrome-stable
 sudo apt-get install -y com.qq.office.deepin
@@ -138,6 +139,7 @@ sudo apt-get install -y libfcitx5core-dev
 sudo apt-get install -y fcitx5-modules-dev
 sudo apt-get install -y librime-dev
 sudo apt-get install -y appstream
+sudo apt-get install -y gettext
 
 #隐藏启动器中 fcitx5配置、键盘布局查看工具
 sudo sed -i '$a\NoDisplay=true' /usr/share/applications/fcitx5-configtool.desktop 
