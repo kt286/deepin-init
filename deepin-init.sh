@@ -174,6 +174,7 @@ sudo cp /usr/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/org
 #wget -t 3 -T 15 https://raw.githubusercontent.com/kt286/deepin-init/master/assets/pinyin.svg
 #sudo cp pinyin.svg /usr/share/icons/bloom/apps/64/org.fcitx.Fcitx5.svg
 #sudo cp pinyin.svg /usr/share/icons/bloom/apps/64/org.fcitx.Fcitx5.fcitx-pinyin.svg
+#sudo cp pinyin.svg /usr/share/icons/bloom/status/48/fcitx-pinyin.svg
 
 sudo mv /usr/share/icons/bloom/actions/24/input-keyboard-symbolic.svg /usr/share/icons/bloom/actions/24/input-keyboard-symbolic.svg.bak
 sudo ln -s /usr/share/icons/bloom/status/20/keyboard-symbolic.svg /usr/share/icons/bloom/status/20/input-keyboard-symbolic.svg
@@ -186,7 +187,7 @@ sudo cp zhwiki-20220226.dict ~/.local/share/fcitx5/pinyin/dictionaries/fcitx5-pi
 #fcitx5皮肤
 mkdir -p ~/.local/share/fcitx5/themes/Material-Color
 git clone https://github.com/hosxy/Fcitx5-Material-Color.git ~/.local/share/fcitx5/themes/Material-Color
-ln -s ~/.local/share/fcitx5/themes/Material-Color/theme-blue.conf ~/.local/share/fcitx5/themes/Material-Colortheme.conf
+ln -s ~/.local/share/fcitx5/themes/Material-Color/theme-blue.conf ~/.local/share/fcitx5/themes/Material-Color/theme.conf
 
 #编译fcitx5-rime
 mkdir -p ~/workspace/fcitx5-rime
