@@ -66,6 +66,7 @@ rm -rf ~/.config/google-chrome/PepperFlash/
 
 #卸载深度帮助手册和深度欢迎两个没用还占地方的东西（会同时卸载dde，貌似没啥问题）
 sudo apt-get purge -y deepin-manual
+sudo apt-get purge -y dde-manual-content
 sudo apt-get purge -y dde-introduction
 
 #卸载自己不需要的软件
@@ -88,7 +89,6 @@ sudo apt-get purge -y libreoffice*
 sudo apt-get purge -y simple-scan
 sudo apt-get purge -y printer-driver-deepin-cloud-print
 sudo apt-get purge -y org.deepin.browser
-sudo apt-get purge -y yelp
 sudo apt-get purge -y deepin-forum
 sudo apt-get purge -y fcitx*
 
@@ -124,9 +124,6 @@ sudo apt-get install -y bcompare
 sudo apt-get install -y nodejs
 sudo apt-get install -y remmina
 
-#卸载fcitx时会同时卸载qdbus，导致截图录屏无法使用快捷键呼出，重新安装修复(安装 qdbus-qt5 也可以，不知道有什么区别)
-sudo apt-get install -y qdbus
-
 #安装nvidia闭源驱动
 sudo apt-get install -y nvidia-detect
 nvidia-detect | awk 'match($0, /nvidia-.*/, a) {print a[0]}' | xargs sudo apt-get -y install
@@ -160,9 +157,6 @@ cp -r /opt/apps/com.oray.sunlogin.client/entries/applications/* ~/.local/share/a
 
 cp -r /opt/apps/cn.wps.wps-office/entries/icons/* ~/.local/share/icons/
 cp -r /opt/apps/cn.wps.wps-office/entries/applications/* ~/.local/share/applications/
-
-#修复卸载多个软件后重启，启动器中又出现已卸载的图标
-rm -rf ~/.config/deepin/dde-launcher-app-used-sorted-list.conf
 
 #修复安装VSCode后，Win + E 打开的是VSCode
 xdg-mime default dde-file-manager.desktop inode/directory
