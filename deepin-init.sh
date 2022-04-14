@@ -15,8 +15,11 @@ gsettings set com.deepin.xsettings dtk-window-radius 8  # 窗口圆角-中
 gsettings set com.deepin.dde.dock display-mode 'efficient'  # dock-高效模式
 gsettings set com.deepin.dde.dock window-size-efficient 46  # dock-高度增加
 
-gsettings set com.deepin.dde.dock.module.multitasking enable false  # dock-禁用多任务窗口插件（待调整为只关闭，不禁用）
-gsettings set com.deepin.dde.dock.module.show-desktop enable false  # dock-禁用显示桌面插件（待调整为只关闭，不禁用）
+busctl --user call com.deepin.dde.Dock /com/deepin/dde/Dock com.deepin.dde.Dock setPluginVisible sb '显示桌面' false  # dock-禁用显示桌面插件
+busctl --user call com.deepin.dde.Dock /com/deepin/dde/Dock com.deepin.dde.Dock setPluginVisible sb '屏幕键盘' false  # dock-禁用屏幕键盘插件
+busctl --user call com.deepin.dde.Dock /com/deepin/dde/Dock com.deepin.dde.Dock setPluginVisible sb '多任务视图' false  # dock-禁用多任务窗口插件
+busctl --user call com.deepin.dde.Dock /com/deepin/dde/Dock com.deepin.dde.Dock setPluginVisible sb '通知中心' false  # dock-禁用通知中心插件
+busctl --user call com.deepin.dde.Dock /com/deepin/dde/Dock com.deepin.dde.Dock setPluginVisible sb '全局搜索' false  # dock-禁用全局搜索插件
 
 gsettings set com.deepin.dde.mouse disable-touchpad true  #插入鼠标时禁用触控板
 
