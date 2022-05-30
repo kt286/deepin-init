@@ -20,6 +20,7 @@ busctl --user call com.deepin.dde.Dock /com/deepin/dde/Dock com.deepin.dde.Dock 
 busctl --user call com.deepin.dde.Dock /com/deepin/dde/Dock com.deepin.dde.Dock setPluginVisible sb '多任务视图' false  # dock-禁用多任务窗口插件
 busctl --user call com.deepin.dde.Dock /com/deepin/dde/Dock com.deepin.dde.Dock setPluginVisible sb '通知中心' false  # dock-禁用通知中心插件
 busctl --user call com.deepin.dde.Dock /com/deepin/dde/Dock com.deepin.dde.Dock setPluginVisible sb '全局搜索' false  # dock-禁用全局搜索插件
+busctl --user call com.deepin.dde.Dock /com/deepin/dde/Dock com.deepin.dde.Dock setPluginVisible sb '截图录屏' false  # dock-禁用截图录屏插件
 
 gsettings set com.deepin.dde.mouse disable-touchpad true  #插入鼠标时禁用触控板
 
@@ -60,8 +61,12 @@ sudo sh -c 'echo "Package: bcompare\nPin: origin www.scootersoftware.com\nPin-Pr
 wget -q -O - https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
 sudo sh -c 'echo "deb https://deb.nodesource.com/node_16.x buster main" > /etc/apt/sources.list.d/nodesource.list'
 
-#添内测源到source.list.d
+#添加内测源到source.list.d
 sudo sh -c 'echo "deb [trusted=yes] https://proposed-packages.deepin.com/dde-apricot unstable main contrib non-free" > /etc/apt/sources.list.d/deepin-unstable.list'
+
+#添加better-dde源到source.list.d
+wget -q -O - https://better-dde.github.io/ppa/better-dde.gpg | sudo apt-key add -
+sudo sh -c 'echo "deb https://better-dde.github.io/ppa/ ./" > /etc/apt/sources.list.d/better-dde.list'
 
 #卸载系统自带Flash
 sudo apt-get purge -y libflashplugin-pepper
@@ -124,6 +129,8 @@ sudo apt-get install -y cn.wps.wps-office
 sudo apt-get install -y docker-ce
 sudo apt-get install -y typora
 sudo apt-get install -y fcitx5-chinese-addons
+sudo apt-get install -y fcitx5-material-color
+sudo apt-get install -y fcitx5-rime
 sudo apt-get install -y bcompare
 sudo apt-get install -y nodejs
 sudo apt-get install -y remmina
@@ -135,14 +142,6 @@ nvidia-detect | awk 'match($0, /nvidia-.*/, a) {print a[0]}' | xargs sudo apt-ge
 #安装任务栏显卡驱动切换插件
 wget -t 3 -T 15 https://github.com/zty199/dde-dock-switch_graphics_card/releases/download/v1.8.4-1/dde-dock-graphics-plugin_1.8.4-1_amd64.deb
 sudo apt-get install -y ./dde-dock-graphics-plugin_1.8.4-1_amd64.deb
-
-#用于编译fcitx5-rime
-sudo apt-get install -y libecm-dev
-sudo apt-get install -y libfcitx5core-dev
-sudo apt-get install -y fcitx5-modules-dev
-sudo apt-get install -y librime-dev
-sudo apt-get install -y appstream
-sudo apt-get install -y gettext
 
 #隐藏启动器中 fcitx5配置、键盘布局查看工具
 sudo sed -i '$a\NoDisplay=true' /usr/share/applications/fcitx5-configtool.desktop 
@@ -174,11 +173,6 @@ mkdir -p ~/.config/autostart
 sudo cp /usr/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/org.fcitx.Fcitx5.desktop
 
 #fcitx5图标美化
-#wget -t 3 -T 15 https://raw.githubusercontent.com/kt286/deepin-init/master/assets/pinyin.svg
-#sudo cp pinyin.svg /usr/share/icons/bloom/apps/64/org.fcitx.Fcitx5.svg
-#sudo cp pinyin.svg /usr/share/icons/bloom/apps/64/org.fcitx.Fcitx5.fcitx-pinyin.svg
-#sudo cp pinyin.svg /usr/share/icons/bloom/status/48/fcitx-pinyin.svg
-
 sudo mv /usr/share/icons/bloom/actions/24/input-keyboard-symbolic.svg /usr/share/icons/bloom/actions/24/input-keyboard-symbolic.svg.bak
 sudo ln -s /usr/share/icons/bloom/status/20/keyboard-symbolic.svg /usr/share/icons/bloom/status/20/input-keyboard-symbolic.svg
 
@@ -186,27 +180,6 @@ sudo ln -s /usr/share/icons/bloom/status/20/keyboard-symbolic.svg /usr/share/ico
 mkdir -p ~/.local/share/fcitx5/pinyin/dictionaries
 wget -t 3 -T 15 https://github.com/felixonmars/fcitx5-pinyin-zhwiki/releases/download/0.2.3/zhwiki-20220226.dict
 sudo cp zhwiki-20220226.dict ~/.local/share/fcitx5/pinyin/dictionaries/fcitx5-pinyin-zhwiki.dict
-
-#fcitx5皮肤
-mkdir -p ~/.local/share/fcitx5/themes/Material-Color
-git clone https://github.com/hosxy/Fcitx5-Material-Color.git ~/.local/share/fcitx5/themes/Material-Color
-ln -s ~/.local/share/fcitx5/themes/Material-Color/theme-blue.conf ~/.local/share/fcitx5/themes/Material-Color/theme.conf
-
-#编译fcitx5-rime
-mkdir -p ~/workspace/fcitx5-rime
-git clone https://github.com/fcitx/fcitx5-rime.git ~/workspace/fcitx5-rime
-mkdir -p ~/workspace/fcitx5-rime/build
-cd ~/workspace/fcitx5-rime/build
-cmake .. -DCMAKE_INSTALL_PREFIX=/usr
-make -j4
-sudo make install
-
-#返回用户下载目录
-cd ~/Downloads
-
-#使用自己编译的深度音乐
-wget -t 3 -T 15 https://raw.githubusercontent.com/kt286/deepin-init/master/assets/deepin-music
-sudo cp deepin-music /usr/bin/deepin-music
 
 #更新TIM到最新版本
 sh -c  '/opt/apps/com.qq.office.deepin/files/run.sh -c'
