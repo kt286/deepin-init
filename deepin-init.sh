@@ -48,10 +48,6 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode s
 wget -q -O - https://mirrors.cloud.tencent.com/docker-ce/linux/debian/gpg | sudo apt-key add -
 sudo sh -c 'echo "deb [arch=amd64] https://mirrors.cloud.tencent.com/docker-ce/linux/debian buster stable" > /etc/apt/sources.list.d/docker.list'
 
-#添加Typora源到source.list.d
-wget -q -O - https://typora.io/linux/public-key.asc | sudo apt-key add -
-sudo sh -c 'echo "deb https://typora.io/linux ./" > /etc/apt/sources.list.d/typora.list'
-
 #添加Beyond Compare源到source.list.d
 wget -q -O - https://www.scootersoftware.com/RPM-GPG-KEY-scootersoftware | sudo apt-key add -
 sudo sh -c 'echo "deb https://www.scootersoftware.com/ bcompare4 non-free" > /etc/apt/sources.list.d/scootersoftware.list'
@@ -127,9 +123,9 @@ sudo apt-get install -y com.qq.weixin.deepin
 sudo apt-get install -y com.oray.sunlogin.client
 sudo apt-get install -y cn.wps.wps-office
 sudo apt-get install -y docker-ce
-sudo apt-get install -y typora
 sudo apt-get install -y fcitx5-chinese-addons
 sudo apt-get install -y fcitx5-material-color
+sudo apt-get install -y fcitx5-pinyin-zhwiki
 sudo apt-get install -y fcitx5-rime
 sudo apt-get install -y bcompare
 sudo apt-get install -y nodejs
@@ -175,11 +171,6 @@ sudo cp /usr/share/applications/org.fcitx.Fcitx5.desktop ~/.config/autostart/org
 #fcitx5图标美化
 sudo mv /usr/share/icons/bloom/actions/24/input-keyboard-symbolic.svg /usr/share/icons/bloom/actions/24/input-keyboard-symbolic.svg.bak
 sudo ln -s /usr/share/icons/bloom/status/20/keyboard-symbolic.svg /usr/share/icons/bloom/status/20/input-keyboard-symbolic.svg
-
-#fcitx5词库
-mkdir -p ~/.local/share/fcitx5/pinyin/dictionaries
-wget -t 3 -T 15 https://github.com/felixonmars/fcitx5-pinyin-zhwiki/releases/download/0.2.3/zhwiki-20220226.dict
-sudo cp zhwiki-20220226.dict ~/.local/share/fcitx5/pinyin/dictionaries/fcitx5-pinyin-zhwiki.dict
 
 #更新TIM到最新版本
 sh -c  '/opt/apps/com.qq.office.deepin/files/run.sh -c'
