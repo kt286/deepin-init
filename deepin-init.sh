@@ -65,79 +65,82 @@ wget -q -O - https://better-dde.github.io/ppa/better-dde.gpg | sudo apt-key add 
 sudo sh -c 'echo "deb https://better-dde.github.io/ppa/ ./" > /etc/apt/sources.list.d/better-dde.list'
 
 #卸载系统自带Flash
-sudo apt-get purge -y libflashplugin-pepper
+sudo apt purge -y libflashplugin-pepper
 rm -rf ~/.config/google-chrome/PepperFlash/
 
 #卸载深度帮助手册和深度欢迎两个没用还占地方的东西（会同时卸载dde，貌似没啥问题）
-sudo apt-get purge -y deepin-manual
-sudo apt-get purge -y dde-manual-content
-sudo apt-get purge -y dde-introduction
+sudo apt purge -y deepin-manual
+sudo apt purge -y dde-manual-content
+sudo apt purge -y dde-introduction
 
 #卸载自己不需要的软件
-sudo apt-get purge -y deepin-feedback
-sudo apt-get purge -y deepin-app-store
-sudo apt-get purge -y deepin-deepinid-client
-sudo apt-get purge -y deepin-calculator
-sudo apt-get purge -y deepin-draw
-sudo apt-get purge -y deepin-voice-note
-sudo apt-get purge -y deepin-album
-sudo apt-get purge -y deepin-camera
-sudo apt-get purge -y deepin-mail
-sudo apt-get purge -y deepin-screensaver*
-sudo apt-get purge -y deepin-clone
-sudo apt-get purge -y deepin-recovery-plugin
-sudo apt-get purge -y deepin-ab-recovery
-sudo apt-get purge -y deepin-boot-maker
-sudo apt-get purge -y gnome-theme*
-sudo apt-get purge -y libreoffice*
-sudo apt-get purge -y simple-scan
-sudo apt-get purge -y printer-driver-deepin-cloud-print
-sudo apt-get purge -y org.deepin.browser
-sudo apt-get purge -y deepin-forum
-sudo apt-get purge -y fcitx*
+sudo apt purge -y deepin-feedback
+sudo apt purge -y deepin-app-store
+sudo apt purge -y deepin-deepinid-client
+sudo apt purge -y deepin-calculator
+sudo apt purge -y deepin-draw
+sudo apt purge -y deepin-voice-note
+sudo apt purge -y deepin-album
+sudo apt purge -y deepin-camera
+sudo apt purge -y deepin-mail
+sudo apt purge -y deepin-screensaver*
+sudo apt purge -y deepin-clone
+sudo apt purge -y deepin-recovery-plugin
+sudo apt purge -y deepin-ab-recovery
+sudo apt purge -y deepin-boot-maker
+sudo apt purge -y gnome-theme*
+sudo apt purge -y libreoffice*
+sudo apt purge -y simple-scan
+sudo apt purge -y printer-driver-deepin-cloud-print
+sudo apt purge -y org.deepin.browser
+sudo apt purge -y org.deepin.downloader
+sudo apt purge -y deepin-deb-installer
+sudo apt purge -y uos-release-note
+sudo apt purge -y deepin-forum
+sudo apt purge -y fcitx*
+sudo apt purge -y nano
 
 #更新20.4后，卸载这个会导致无法右键跳转到设置，酌情卸载
-#sudo apt-get purge -y onboard-common
+#sudo apt purge -y onboard-common
 
 #这个是用来开关机画面的，我个人喜欢看开机输出文字信息，所以卸载
-sudo apt-get purge -y plymouth*
+sudo apt purge -y plymouth*
 
 #这几个是系统自带小游戏（五子棋和连连看）
-sudo apt-get purge -y com.deepin*
+sudo apt purge -y com.deepin*
 
 #清理一下
-sudo apt-get autoremove -y --purge
+sudo apt autoremove -y --purge
 
 #安装软件
-sudo apt-get update && sudo apt-get dist-upgrade -y
-sudo apt-get install -y curl
-sudo apt-get install -y git
-sudo apt-get install -y console-setup
-sudo apt-get install -y cmake-extras
-sudo apt-get install -y extra-cmake-modules
-sudo apt-get install -y build-essential
-sudo apt-get install -y code
-sudo apt-get install -y google-chrome-stable
-sudo apt-get install -y com.qq.office.deepin
-sudo apt-get install -y com.qq.weixin.deepin
-sudo apt-get install -y com.oray.sunlogin.client
-sudo apt-get install -y cn.wps.wps-office
-sudo apt-get install -y docker-ce
-sudo apt-get install -y fcitx5-chinese-addons
-sudo apt-get install -y fcitx5-material-color
-sudo apt-get install -y fcitx5-pinyin-zhwiki
-sudo apt-get install -y fcitx5-rime
-sudo apt-get install -y bcompare
-sudo apt-get install -y nodejs
-sudo apt-get install -y remmina
+sudo apt update && sudo apt dist-upgrade -y
+sudo apt install -y curl
+sudo apt install -y git
+sudo apt install -y console-setup
+sudo apt install -y cmake-extras
+sudo apt install -y extra-cmake-modules
+sudo apt install -y build-essential
+sudo apt install -y code
+sudo apt install -y google-chrome-stable
+sudo apt install -y com.qq.office.deepin
+sudo apt install -y com.qq.weixin.deepin
+sudo apt install -y com.oray.sunlogin.client
+sudo apt install -y cn.wps.wps-office
+sudo apt install -y docker-ce
+sudo apt install -y fcitx5-chinese-addons
+sudo apt install -y fcitx5-material-color
+sudo apt install -y fcitx5-pinyin-zhwiki
+sudo apt install -y fcitx5-flypy
+sudo apt install -y bcompare
+sudo apt install -y nodejs
+sudo apt install -y remmina
 
 #安装nvidia闭源驱动
-sudo apt-get install -y nvidia-detect
-nvidia-detect | awk 'match($0, /nvidia-.*/, a) {print a[0]}' | xargs sudo apt-get -y install
+sudo apt install -y nvidia-detect
+nvidia-detect | awk 'match($0, /nvidia-.*/, a) {print a[0]}' | xargs sudo apt -y install
 
 #安装任务栏显卡驱动切换插件
-wget -t 3 -T 15 https://github.com/zty199/dde-dock-switch_graphics_card/releases/download/v1.8.4-1/dde-dock-graphics-plugin_1.8.4-1_amd64.deb
-sudo apt-get install -y ./dde-dock-graphics-plugin_1.8.4-1_amd64.deb
+sudo apt install -y dde-dock-graphics-plugin
 
 #隐藏启动器中 fcitx5配置、键盘布局查看工具
 sudo sed -i '$a\NoDisplay=true' /usr/share/applications/fcitx5-configtool.desktop 
@@ -192,4 +195,4 @@ touch ~/.deepinwine/Deepin-WeChat/drive_c/users/$(whoami)/Application\ Data/Tenc
 chmod 000 ~/.deepinwine/Deepin-WeChat/drive_c/users/$(whoami)/Application\ Data/Tencent/WeChat/XPlugin/Plugins/XWeb 
 
 #清理一下
-sudo apt-get autoremove -y --purge
+sudo apt autoremove -y --purge
