@@ -39,6 +39,7 @@ gsettings set com.deepin.dde.power line-power-sleep-delay 0  #连接电源-进�
 #grub 主题美化
 sudo busctl call com.deepin.daemon.Grub2 /com/deepin/daemon/Grub2/Theme com.deepin.daemon.Grub2.Theme SetBackgroundSourceFile s '/usr/share/wallpapers/deepin/mike-yukhtenko-a2kD4b0KK4s-unsplash.jpg'
 sudo sed -i 's/deepin-fallback/deepin/g' /etc/default/grub
+sudo /usr/lib/deepin-api/adjust-grub-theme -width 1920 -height 1080
 sudo update-grub2 
 
 #添加Chrome源到source.list.d
