@@ -43,31 +43,31 @@ sudo /usr/lib/deepin-api/adjust-grub-theme -width 1920 -height 1080
 sudo update-grub2 
 
 #添加Chrome源到source.list.d
-wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/google-keyring.gpg
 sudo sh -c 'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
 
 #添加VSCode源到source.list.d
-wget -q -O - https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+wget -q -O - https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft-keyring.gpg
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
 #添加Docker源到source.list.d
-wget -q -O - https://mirrors.cloud.tencent.com/docker-ce/linux/debian/gpg | sudo apt-key add -
+wget -q -O - https://mirrors.cloud.tencent.com/docker-ce/linux/debian/gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/docker-keyring.gpg
 sudo sh -c 'echo "deb [arch=amd64] https://mirrors.cloud.tencent.com/docker-ce/linux/debian buster stable" > /etc/apt/sources.list.d/docker.list'
 
 #添加Beyond Compare源到source.list.d
-wget -q -O - https://www.scootersoftware.com/RPM-GPG-KEY-scootersoftware | sudo apt-key add -
+wget -q -O - https://www.scootersoftware.com/RPM-GPG-KEY-scootersoftware | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/scootersoftware-keyring.gpg
 sudo sh -c 'echo "deb https://www.scootersoftware.com/ bcompare4 non-free" > /etc/apt/sources.list.d/scootersoftware.list'
 sudo sh -c 'echo "Package: bcompare\nPin: origin www.scootersoftware.com\nPin-Priority: 600" > /etc/apt/preferences.d/scootersoftware'
 
 #添加nodejs源到source.list.d
-wget -q -O - https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
+wget -q -O - https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/nodesource-keyring.gpg
 sudo sh -c 'echo "deb https://deb.nodesource.com/node_16.x buster main" > /etc/apt/sources.list.d/nodesource.list'
 
 #添加内测源到source.list.d
 sudo sh -c 'echo "deb [trusted=yes] https://proposed-packages.deepin.com/dde-apricot unstable main contrib non-free" > /etc/apt/sources.list.d/deepin-unstable.list'
 
 #添加better-dde源到source.list.d
-wget -q -O - https://better-dde.github.io/ppa/better-dde.gpg | sudo apt-key add -
+wget -q -O - https://better-dde.github.io/ppa/better-dde.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/better-dde-keyring.gpg
 sudo sh -c 'echo "deb https://better-dde.github.io/ppa/ ./" > /etc/apt/sources.list.d/better-dde.list'
 
 #卸载系统自带Flash
